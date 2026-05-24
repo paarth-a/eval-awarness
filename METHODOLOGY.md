@@ -13,7 +13,26 @@ is described once and cross-referenced as needed.
 
 ---
 
-## 0 · Conventions
+## 0 · What we inherit vs what we contribute
+
+Before describing procedure, we make the methodological stack explicit.
+Three layers are inherited from prior work; three are our contribution.
+
+| Layer | Inherited from prior work | Our addition (in this release) |
+|---|---|---|
+| **Measurement instrument** | MCQ eval-vs-deployment probe of Needham et al. (2025). We use the same probe-question format, the same response-aggregation rule, and the same `gpt-5-mini` judge as their main result. | Apply the instrument across 6 source benchmarks + 2 held-out (SAD, AISI) + cross-family (Mistral, Gemma) + dual-judge (gemini-2.5-flash + claude-haiku-4.5). |
+| **Experimental shape** | Probe → rewrite → re-measure pipeline from PRE / StealthEval (arxiv 2509.00591). They probe a transcript, rewrite to remove eval cues, re-judge. | **Preservation-gated rewriting** (`bank_pipeline/remove_tells.py` with 5-criterion gate + protected spans + verbatim-survival check) and **matched neutral controls** in both forward and reverse directions. PRE has neither. |
+| **Donor benchmarks** | Needham, Hawthorne, MASK, AgentHarm, BBH, MALT — each released by its respective authors with E/D-case labels. | A unified bank-extraction pipeline (`bank_pipeline/extract_tells.py` → `merge_tells.py`) producing 258 canonical test-smell templates classified into 6 categories, with manual validation audit and cross-extractor robustness check (claude-sonnet vs gpt-5.1). |
+| **Forward causal injection** | (new in this work) | $11/11$ cross-benchmark cells, matched paraphrase control via `scripts/forward_causal_11cells.py`, matched neutral-prefix control via `scripts/forward_neutral_injection.py`. Pooled causal $\Delta = +0.192$ with bootstrap CI $[+0.129, +0.252]$. |
+| **Reverse causal intervention** | (extends PRE shape, with preservation gate as the new piece) | Source pool ($n{=}93$) causal $\Delta = -0.346$, held-out (SAD+AISI, $n{=}146$) $\Delta = -0.176$ ($p<10^{-13}$). Six preservation oracles ($73$--$100\%$). SAD v3 gate-rejection finding (60/60). |
+| **Activation-probe diagnostic suite** | Per-layer linear-probe tradition; paired-prompt cross-family idea from Abdelnabi & Salem (2025). | Six models / three families (Qwen3, Qwen3.5, Mistral, Gemma-2). Transparent M1 transfer-fail (off-diag AUC $0.54$), shuffled-label null at $63$rd percentile, pooled-probe mitigation. Reported as a supporting diagnostic, not a representation claim. |
+
+**One-sentence summary:** we take Needham's measurement instrument and PRE's
+pipeline shape, and contribute the test-smell bank, the preservation gate
+with matched neutral controls, the forward causal injection, and the
+transparent cross-family probe diagnostics.
+
+## 0.1 · Conventions
 
 ### Sign convention
 Throughout: $\Delta = P(\text{eval})_{\text{after}} - P(\text{eval})_{\text{before}}$.

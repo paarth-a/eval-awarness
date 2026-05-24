@@ -185,6 +185,31 @@ question, where ours is a measurement question about which surface
 features drive judge classification and whether they can be removed
 without breaking the task.
 
+\paragraph{What we inherit, what we add.}
+Methodologically, this paper composes \emph{three layers of prior work}
+with \emph{three new layers}. We make the boundary explicit because the
+combined stack is non-obvious from any single citation.
+
+\begin{table}[h]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{0.18\linewidth}p{0.32\linewidth}p{0.36\linewidth}}
+\toprule
+\textbf{Layer} & \textbf{Inherited from} & \textbf{Our addition} \\
+\midrule
+Measurement instrument & MCQ eval-vs-deployment probe \citep{needham2025evalawareness} & Apply it across $6$ benchmarks + $2$ held-out + cross-family + dual-judge. \\
+Experimental shape & probe $\to$ rewrite $\to$ re-measure \citep{pre2025stealtheval} & \textbf{Preservation-gated} rewriting + \textbf{matched neutral controls} in both directions. \\
+Donor benchmarks & \bench{Needham, Hawthorne, MASK, AgentHarm, BBH, MALT} from their authors & A unified bank-extraction pipeline producing $258$ canonical test-smell templates. \\
+Forward causal injection & --- (new) & $11/11$ cross-benchmark cells with matched paraphrase + neutral-prefix controls; pooled causal $\Delta = +0.192$ with bootstrap CI. \\
+Reverse causal intervention & --- (extends PRE shape) & $5$-criterion preservation gate; $73$--$100\%$ preservation across $6$ oracles; held-out \bench{SAD}+\bench{AISI} generalization $p<10^{-13}$. \\
+Activation-probe diagnostic suite & per-layer linear probing tradition; cross-family idea from \citet{abdelnabi2025hawthorne} & Six models / three families; explicit M1 transfer-fail + shuffled-label null + pooled-probe mitigation as a transparent negative-result section. \\
+\bottomrule
+\end{tabular}
+\caption{Contribution boundary. Each row names a methodological layer,
+what we take from prior work, and what we contribute on top of it.}
+\label{tab:contrib-boundary}
+\end{table}
+
 \paragraph{Contributions.}
 \begin{enumerate}
   \item A \textbf{258-template bank} of canonical test-smells extracted
@@ -235,10 +260,10 @@ which we build directly. \citet{hua2025steering} and
 chain-of-thought correlates with refusal rates across $8$ models and
 $19$ benchmarks; \citet{knecht2026vea} reach the opposite behavioral
 conclusion using CoT prefill across $8$ reasoning models. We complement
-this debate by operationalizing awareness with the upstream MCQ probe
-(not a CoT side-channel) and by adding a preservation gate that
-disambiguates ``the model treats the rewrite as deployment'' from
-``the rewrite shifted the test target.''
+this debate by adopting the upstream MCQ probe of
+\citet{needham2025evalawareness} (not a CoT side-channel) and by
+adding a preservation gate that disambiguates ``the model treats the
+rewrite as deployment'' from ``the rewrite shifted the test target.''
 
 \paragraph{Probe--rewrite--evaluate (PRE / StealthEval).}
 \citet{pre2025stealtheval} introduced the probe$\to$LLM-rewrite$\to$
