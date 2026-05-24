@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Evaluation Tell Template",
+  "description": "A canonical template describing a recurring evaluation-tell pattern.",
+  "type": "object",
+  "required": ["unique_id", "template_id", "source_benchmark", "category", "pattern_name", "description"],
+  "properties": {
+    "unique_id": {
+      "type": "string",
+      "description": "Globally unique ID, formed as 'source_benchmark/template_id'.",
+      "pattern": "^[a-z_]+/[a-z0-9_]+$"
+    },
+    "template_id": {
+      "type": "string",
+      "description": "Source-local template ID."
+    },
+    "source_benchmark": {
+      "type": "string",
+      "description": "Origin benchmark.",
+      "enum": ["needham", "hawthorne", "mask", "agentharm", "bbh", "malt"]
+    },
+    "category": {
+      "type": "string",
+      "description": "One of 6 high-level categories.",
+      "enum": ["CONTRIVED_TASK", "SYSTEM_INSTRUCTIONS", "TASK_FORMATTING", "FICTIONAL_SCENARIO", "ETHICAL_PROBE", "ANSWER_FORMATTING", "UNCATEGORIZED"]
+    },
+    "pattern_name": {
+      "type": "string",
+      "description": "Human-readable short name for the pattern."
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the eval-tell pattern."
+    },
+    "adaptation_instructions": {
+      "type": "string",
+      "description": "Guidance for matching this template against a transcript."
+    },
+    "representative_examples": {
+      "type": "array",
+      "description": "List of example matches from source transcripts.",
+      "items": {
+        "type": "object",
+        "required": ["evidence"],
+        "properties": {
+          "transcript_id": {"type": "string"},
+          "evidence": {"type": "string"}
+        }
+      }
+    },
+    "compatibility_notes": {
+      "type": "string",
+      "description": "Format constraints (e.g., 'requires system message')."
+    },
+    "source_tell_ids": {
+      "type": "array",
+      "description": "IDs of raw extracted tells this template was derived from.",
+      "items": {"type": "string"}
+    },
+    "frequency": {
+      "type": ["integer", "null"],
+      "description": "Number of source tells canonicalized into this template."
+    },
+    "typical_location": {
+      "type": ["string", "null"],
+      "description": "Where the tell typically appears (system / user / assistant)."
+    }
+  }
+}

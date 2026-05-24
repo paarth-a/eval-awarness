@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Local environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Large regenerable artifacts (regenerable on GPU; see activation_probing/README.md)
+activation_probing/cache/*.npz
+activation_probing/probes/*.pkl
+activation_probing/probes_*/
+
+# Cost / log dumps
+*.log
+nohup.out

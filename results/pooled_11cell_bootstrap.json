@@ -1,0 +1,104 @@
+{
+  "n_cells": 11,
+  "per_cell": [
+    {
+      "cell": "agentharm_to_haw",
+      "causal_mean": 0.2692307692307692,
+      "n": 13,
+      "ci_low": 0.0,
+      "ci_high": 0.5384615384615384,
+      "source": "cross_matrix"
+    },
+    {
+      "cell": "haw_to_mask",
+      "causal_mean": 0.33245614035087717,
+      "n": 19,
+      "ci_low": 0.19993421052631583,
+      "ci_high": 0.46929824561403505,
+      "source": "cross_matrix"
+    },
+    {
+      "cell": "malt_to_mask",
+      "causal_mean": 0.19736842105263158,
+      "n": 19,
+      "ci_low": 0.021864035087719356,
+      "ci_high": 0.39129385964912267,
+      "source": "cross_matrix"
+    },
+    {
+      "cell": "mask_to_needham",
+      "causal_mean": 0.07608695652173914,
+      "n": 23,
+      "ci_low": -0.021739130434782608,
+      "ci_high": 0.1633152173913041,
+      "source": "cross_matrix"
+    },
+    {
+      "cell": "agentharm_to_mask",
+      "causal_mean": 0.16333333333333333,
+      "n": 15,
+      "t_stat": 2.0780628777159285,
+      "source": "expansion"
+    },
+    {
+      "cell": "agentharm_to_needham",
+      "causal_mean": 0.016666666666666666,
+      "n": 15,
+      "t_stat": 1.4348601079588785,
+      "source": "expansion"
+    },
+    {
+      "cell": "hawthorne_to_needham",
+      "causal_mean": 0.019999999999999997,
+      "n": 15,
+      "t_stat": 1.3816985594155151,
+      "source": "expansion"
+    },
+    {
+      "cell": "mask_to_hawthorne",
+      "causal_mean": 0.24466666666666664,
+      "n": 15,
+      "t_stat": 2.52637825584779,
+      "source": "expansion"
+    },
+    {
+      "cell": "needham_to_hawthorne",
+      "causal_mean": 0.29,
+      "n": 15,
+      "t_stat": 2.8104233537937295,
+      "source": "expansion"
+    },
+    {
+      "cell": "needham_to_mask",
+      "causal_mean": 0.25333333333333335,
+      "n": 15,
+      "t_stat": 2.5976265226937207,
+      "source": "expansion"
+    },
+    {
+      "cell": "bbh_to_haw",
+      "causal_mean": 0.2525,
+      "n": 20,
+      "t_stat": 3.233367152453356,
+      "source": "expansion"
+    }
+  ],
+  "pooled_mean_causal_delta": 0.19233111701418337,
+  "pooled_ci95_bootstrap": [
+    0.1292400892395172,
+    0.2516692429043116
+  ],
+  "one_sample_t_vs_zero": {
+    "t": 5.8206083244744296,
+    "p_two_sided": 0.00016818003307664684
+  },
+  "n_direction_positive": 11,
+  "n_per_cell_significant": 7,
+  "median": 0.24466666666666664,
+  "iqr": [
+    0.11971014492753623,
+    0.2612820512820513
+  ],
+  "min": 0.016666666666666666,
+  "max": 0.33245614035087717
+}

@@ -1,0 +1,22 @@
+{
+  "model": "unsloth/gemma-2-27b-it",
+  "matrix": {
+    "needham": {
+      "needham": 1.0,
+      "hawthorne": 0.4314,
+      "mask": 0.8005
+    },
+    "hawthorne": {
+      "needham": 0.469406099518459,
+      "hawthorne": 1.0,
+      "mask": 0.5502666666666667
+    },
+    "mask": {
+      "needham": 0.7213483146067416,
+      "hawthorne": 0.501975,
+      "mask": 0.985
+    }
+  },
+  "mean_diag_auc": 0.995,
+  "mean_off_diag_auc": 0.5791493467986445
+}

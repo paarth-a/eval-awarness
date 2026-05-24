@@ -1,0 +1,21 @@
+{
+  "total_templates": 258,
+  "n_source_benchmarks": 6,
+  "by_source": {
+    "hawthorne": 15,
+    "mask": 27,
+    "agentharm": 26,
+    "bbh": 45,
+    "malt": 80,
+    "needham": 65
+  },
+  "by_category": {
+    "CONTRIVED_TASK": 75,
+    "SYSTEM_INSTRUCTIONS": 44,
+    "TASK_FORMATTING": 42,
+    "FICTIONAL_SCENARIO": 35,
+    "ETHICAL_PROBE": 31,
+    "ANSWER_FORMATTING": 31
+  },
+  "schema_version": "1.0"
+}

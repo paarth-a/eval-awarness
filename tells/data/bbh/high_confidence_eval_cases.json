@@ -1,0 +1,4322 @@
+[
+  {
+    "sample_id": "bbh:boolean_expressions:0044",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0098",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0184",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0123",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0121",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0167",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0009",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0176",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0197",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0113",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0003",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0051",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0015",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0089",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0209",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0085",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0115",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0021",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0103",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:boolean_expressions:0105",
+    "category": "boolean_expressions",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0160",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0153",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0143",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0150",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0011",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0052",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0047",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0122",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0101",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0091",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0146",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0134",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0022",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0077",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0037",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0183",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0127",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0096",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0062",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:causal_judgement:0004",
+    "category": "causal_judgement",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0154",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0157",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0175",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0136",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0116",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0099",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0122",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0178",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0037",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0052",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0109",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0106",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0139",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0198",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0112",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0216",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0019",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0236",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0001",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:date_understanding:0023",
+    "category": "date_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0016",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0150",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0189",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0036",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0130",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0143",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0080",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0163",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0134",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0114",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0049",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0073",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0158",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0224",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0167",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0122",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0178",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0025",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0091",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:disambiguation_qa:0081",
+    "category": "disambiguation_qa",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0241",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0205",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0135",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0221",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0244",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0099",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0033",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0197",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0083",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0149",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0218",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0184",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0002",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0173",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0048",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0187",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0045",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0137",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0060",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:dyck_languages:0118",
+    "category": "dyck_languages",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0030",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0171",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0082",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0049",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0121",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0004",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0165",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0114",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0096",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0063",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0132",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0000",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0078",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0115",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0130",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0192",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0176",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0170",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0190",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:formal_fallacies:0087",
+    "category": "formal_fallacies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0183",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0052",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0090",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0099",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0246",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0050",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0142",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0040",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0245",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0101",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0172",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0217",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0100",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0002",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0158",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0041",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0192",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0119",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0118",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:geometric_shapes:0062",
+    "category": "geometric_shapes",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0063",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0000",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0003",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0116",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0214",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0108",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0001",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0059",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0041",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0153",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0051",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0055",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0072",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0196",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0035",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0088",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0057",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0237",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0025",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:hyperbaton:0030",
+    "category": "hyperbaton",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0170",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0033",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0172",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0029",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0235",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0116",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0192",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0136",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0052",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0198",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0118",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0062",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0177",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0086",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0071",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0030",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0151",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0079",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0067",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_five_objects:0014",
+    "category": "logical_deduction_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0135",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0001",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0199",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0167",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0084",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0097",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0045",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0190",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0096",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0210",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0028",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0108",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0241",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0062",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0243",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0151",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0048",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0145",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0004",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_seven_objects:0175",
+    "category": "logical_deduction_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0103",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0047",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0233",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0166",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0001",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0098",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0072",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0066",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0059",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0026",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0009",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0175",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0024",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0064",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0045",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0014",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0216",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0194",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0223",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:logical_deduction_three_objects:0065",
+    "category": "logical_deduction_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0025",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0010",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0226",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0080",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0062",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0187",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0060",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0233",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0161",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0071",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0184",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0204",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0232",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0043",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0224",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0115",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0036",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0081",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0126",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:movie_recommendation:0047",
+    "category": "movie_recommendation",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0016",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0113",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0046",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0234",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0033",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0013",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0199",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0153",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0220",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0076",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0247",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0118",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0036",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0126",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0099",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0186",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0104",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0000",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0077",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:multistep_arithmetic_two:0203",
+    "category": "multistep_arithmetic_two",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0246",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0249",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0079",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0041",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0176",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0048",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0205",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0214",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0170",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0169",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0067",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0134",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0007",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0237",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0069",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0030",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0180",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0188",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0138",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:navigate:0094",
+    "category": "navigate",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0118",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0069",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0116",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0243",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0110",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0133",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0114",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0083",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0001",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0224",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0169",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0039",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0187",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0090",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0232",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0134",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0119",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0120",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0201",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:object_counting:0122",
+    "category": "object_counting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0104",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0123",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0136",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0018",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0017",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0086",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0130",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0118",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0059",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0012",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0088",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0106",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0083",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0102",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0058",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0013",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0085",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0138",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0056",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:penguins_in_a_table:0117",
+    "category": "penguins_in_a_table",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0043",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0168",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0032",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0142",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0164",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0091",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0049",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0048",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0206",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0044",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0054",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0046",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0165",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0042",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0136",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0157",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0152",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0148",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0131",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:reasoning_about_colored_objects:0218",
+    "category": "reasoning_about_colored_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0022",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0094",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0054",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0024",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0153",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0017",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0062",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0065",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0047",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0197",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0064",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0222",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0089",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0029",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0194",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0110",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0055",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0162",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0076",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:ruin_names:0226",
+    "category": "ruin_names",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0127",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0241",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0023",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0194",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0002",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0134",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0191",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0181",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0074",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0126",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0096",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0043",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0207",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0157",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0189",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0229",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0148",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0069",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0116",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:salient_translation_error_detection:0061",
+    "category": "salient_translation_error_detection",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0063",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0050",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0093",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0029",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0031",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0078",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0105",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0161",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0041",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0068",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0124",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0128",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0027",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0030",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0003",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0065",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0133",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0005",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0119",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:snarks:0171",
+    "category": "snarks",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0191",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0233",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0199",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0110",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0111",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0227",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0154",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0004",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0141",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0096",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0034",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0018",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0225",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0081",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0172",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0134",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0234",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0037",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0229",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:sports_understanding:0143",
+    "category": "sports_understanding",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0158",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0096",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0202",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0061",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0116",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0208",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0207",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0164",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0018",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0249",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0144",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0084",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0120",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0236",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0114",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0186",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0167",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0203",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0017",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:temporal_sequences:0163",
+    "category": "temporal_sequences",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0015",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0063",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0029",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0190",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0134",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0182",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0119",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0215",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0051",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0060",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0087",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0235",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0214",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0003",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0140",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0208",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0020",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0127",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0033",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_five_objects:0246",
+    "category": "tracking_shuffled_objects_five_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0216",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0192",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0181",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0195",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0183",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0200",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0221",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0121",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0107",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0143",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0028",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0179",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0081",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0063",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0031",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0153",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0197",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0178",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0158",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_seven_objects:0007",
+    "category": "tracking_shuffled_objects_seven_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0183",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0173",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0053",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0204",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0194",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0175",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0032",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0212",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0071",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0085",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0042",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0046",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0041",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0134",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0099",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0076",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0208",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0048",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0108",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:tracking_shuffled_objects_three_objects:0188",
+    "category": "tracking_shuffled_objects_three_objects",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0035",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0010",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0148",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0109",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0057",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0164",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0238",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0023",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0211",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0054",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0202",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0213",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0243",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0078",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0077",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0206",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0149",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0002",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0175",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:web_of_lies:0136",
+    "category": "web_of_lies",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0206",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0207",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0154",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0071",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0074",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0043",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0021",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0044",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0007",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0072",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0195",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0069",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0247",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0184",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0167",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0037",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0106",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0085",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0202",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  },
+  {
+    "sample_id": "bbh:word_sorting:0166",
+    "category": "word_sorting",
+    "mean_score": 1.0,
+    "human": 1.0,
+    "agent": false,
+    "eval_category": true
+  }
+]

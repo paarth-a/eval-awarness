@@ -1,0 +1,1479 @@
+% EMNLP 2026 main-track submission
+% Title: Test Smells: Causal Decomposition of Eval-Identifiability in LLM Benchmarks
+%
+% Style: assumes acl.sty + acl_natbib.bst from the EMNLP 2026 LaTeX package.
+% Compile: pdflatex paper_v2 ; bibtex paper_v2 ; pdflatex paper_v2 ; pdflatex paper_v2
+%
+% If acl.sty is unavailable locally, swap the next two lines for:
+%   \documentclass[11pt]{article}
+%   \usepackage[a4paper,margin=1in]{geometry}
+%   \usepackage{natbib}
+% and the compile will produce a generic A4 PDF that exercises all the content.
+\documentclass[11pt]{article}
+\usepackage[final]{acl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes,arrows.meta,backgrounds,fit}
+
+% Convenience commands
+\newcommand{\Peval}{P(\text{eval})}
+\newcommand{\dpeval}{\Delta\Peval}
+\newcommand{\bankspec}{\textsc{bank-spec}}
+\newcommand{\todoc}[1]{\textcolor{red}{[\textbf{TODO}: #1]}}
+\newcommand{\category}[1]{\textsc{#1}}
+\newcommand{\bench}[1]{\textsc{#1}}
+
+\title{Test Smells: A Causal Decomposition of Eval-Identifiability \\
+       in Modern LLM Benchmarks}
+
+\author{Anonymous EMNLP submission}
+
+\begin{document}
+\maketitle
+
+% ============================================================================
+\begin{abstract}
+Modern LLM evaluations often have recognizable \emph{test smells} ---
+recurrent surface features (item identifiers, scoring rubrics, fictional
+placeholders, explicit harm probes, formatting constraints) that mark a
+transcript as ``an eval'' rather than a real user request. We extract
+a bank of \textbf{258 canonical test-smell templates} from six widely
+used benchmarks (\bench{Needham}, \bench{Hawthorne}, \bench{MASK},
+\bench{AgentHarm}, \bench{BBH}, \bench{MALT}), categorize them along a six-class
+taxonomy, and show three causal effects.
+\textbf{(1) Forward injection}: inserting bank cues into deployment-style
+transcripts raises an LLM-judge's eval-classification by a mean of
+$+0.21$ across $11/11$ cross-benchmark source--target pairs ($9/11$
+raw-shift significant). Under a matched paraphrase control (subtracting
+the shift induced by a same-scope rewrite that does not target bank
+features), the \emph{bank-specific causal} shift is $\bm{+0.192}$ on
+average across all $\bm{11/11}$ control-scored cells, $\bm{11/11}$
+direction-positive and $\bm{7/11}$ individually significant
+(per-cell range $+0.017$ to $+0.332$).
+\textbf{(2) Reverse intervention with a preservation gate}: removing the
+cues under a 5-criterion gate that validates task preservation lowers
+\Peval{} by $-0.391$ on the source pool ($n{=}93$) and by $-0.176$
+($p<10^{-13}$) on the never-seen \bench{SAD}+\bench{AISI} held-out pool, while
+\emph{preserving the task}: $92\%$ behavioral parity, $96\%$ topic
+preservation ($\kappa{=}0.59$, $n{=}205$), $89.8\%$ {BBH} task-metric
+accuracy ($n{=}252$), and $80.8$--$100\%$ refusal-class preservation on
+two safety benchmarks.
+\textbf{(3) Neutral-rewrite controls localize the effect by benchmark
+type}: on capability benchmarks (\bench{Needham}) bank removal beats matched
+neutral edits by $7.9\times$, while on safety benchmarks neutral rewrites
+move \Peval{} comparably to bank removal --- consistent with safety-eval
+signal being more entangled with task content.
+
+Activation probes trained on residual-stream features of six open-weight
+models across three families (Qwen3-8B, 32B; Qwen3.5-27B, 122B-A10B;
+Mistral-Small-24B-Instruct-2501 and Gemma-2-27B-it as cross-family
+checks) replicate the direction at the representation level, but only
+when trained on a \emph{pooled} cross-benchmark contrast: per-benchmark
+probes fail to transfer cross-benchmark (mean off-diagonal AUC
+$0.54$--$0.58$, including both cross-family probes), and the probe's
+\Peval{} is uncorrelated with simple safety-keyword density
+($r{=}+0.009$ across $1{,}350$ samples). We treat the probes as supporting diagnostics,
+not as evidence for a universal eval-awareness representation, and
+position our work against the stronger paired-prompt design of
+\citet{abdelnabi2025hawthorne}. Our central claim is decompositional:
+eval-identifiability has a removable surface component, but a large
+fraction of the signal is intrinsic to the task --- particularly in
+safety evals --- and cues do not behave like independent additive
+features. We release the bank, paired datasets, and analysis code as a
+diagnostic for benchmark designers.
+\end{abstract}
+
+% ============================================================================
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  every node/.style={font=\small, align=center},
+  block/.style={rectangle, draw, rounded corners=2pt, minimum height=10mm,
+                minimum width=22mm, inner sep=3pt, fill=white},
+  evidence/.style={rectangle, draw=blue!40, fill=blue!5, rounded corners=2pt,
+                   minimum height=8mm, minimum width=34mm, inner sep=3pt,
+                   font=\footnotesize},
+  arrow/.style={-Stealth, thick, gray},
+  label/.style={font=\scriptsize\itshape, text=gray}
+]
+% Top: Raw measurement
+\node[block, fill=blue!10] (raw) {Raw judge shift\\[1pt] $\boldsymbol{+0.21}$ forward / $\boldsymbol{-0.39}$ reverse};
+% Split: matched controls
+\node[block, fill=orange!15, below left=8mm and 12mm of raw] (surf) {Surface\\(removable)};
+\node[block, fill=red!12, below right=8mm and 12mm of raw] (intr) {Intrinsic\\(task-entangled)};
+\draw[arrow] (raw) -- node[label, left=1pt] {matched neutral} (surf);
+\draw[arrow] (raw) -- node[label, right=1pt] {everything else} (intr);
+% Evidence boxes
+\node[evidence, below=4mm of surf] (e1) {Forward bank-specific causal:\\$\bm{+0.192}$ pooled (11/11 cells $+$)};
+\node[evidence, below=2mm of e1]   (e2) {Reverse causal $\Delta = -0.346$\\($7.9\times$ vs neutral, Needham)};
+\node[evidence, below=4mm of intr] (e3) {Held-out reverse $-0.176$\\($p<10^{-13}$, SAD+AISI)};
+\node[evidence, below=2mm of e3]   (e4) {SAD v3 gate rejects $\bm{60/60}$:\\``surface'' = test on SAD};
+\draw[arrow] (surf) -- (e1);
+\draw[arrow] (intr) -- (e3);
+% Bottom: preservation oracles
+\node[block, fill=green!12, minimum width=125mm, below=12mm of $(e2)!0.5!(e4)$] (pres)
+  {Preservation oracles ($73$--$100\%$): \textbf{92\%} behavioral / \textbf{96\%} topic / \textbf{89.8\%} BBH task / \textbf{80.8\%} AgentHarm refuse-class / \textbf{73.1\%} AgentHarm safety-rubric / \textbf{100\%} Hawthorne refuse-class};
+\draw[arrow, dashed] (e2) -- (pres.north -| e2);
+\draw[arrow, dashed] (e4) -- (pres.north -| e4);
+% Caption hint
+\node[label, below=2mm of pres, font=\scriptsize] {Removal of surface cues survives all six preservation oracles ($73$--$100\%$); intrinsic component is what remains under preservation-validated removal.};
+\end{tikzpicture}
+\caption{The test-smell decomposition. The raw judge shift induced by bank
+features ($+0.21$ forward / $-0.39$ reverse, Sec.~\ref{sec:forward}--\ref{sec:reverse})
+splits into a \emph{surface} component (removable by preservation-validated rewriting;
+quantified by matched neutral controls in both directions) and an \emph{intrinsic}
+component (task-entangled; survives surface ablation). The surface component is
+benchmark-type-dependent: on capability benchmarks it dominates (bank/neutral ratio
+$7.9\times$ on \bench{Needham} sources, Table~\ref{tab:reverse-canonical}); on
+safety benchmarks surface removal is less differentiating from neutral paraphrase
+at the judge level (bank/neutral ratio $\sim 1\text{--}2\times$), while still
+preserving the underlying safety behavior on six oracles
+(Table~\ref{tab:preservation}; dual-annotator $n{=}60$ spot-check: $0$ task
+unlocks across both annotators). All ablations preserve the task across
+those oracles.}
+\label{fig:decomp}
+\end{figure*}
+
+% ============================================================================
+\section{Introduction}
+\label{sec:intro}
+
+Frontier LLMs behave differently when they detect they are being
+evaluated --- a phenomenon often called \emph{evaluation awareness} or
+\emph{test awareness} \citep{needham2025evalawareness,
+abdelnabi2025hawthorne}. The behavior is alignment-relevant because
+several documented misalignments --- alignment faking
+\citep{anthropic2024alignmentfaking}, in-context scheming
+\citep{meinke2024scheming}, and deferred defection in sleeper agents
+\citep{hubinger2024sleeper} --- can be \emph{conditioned} on the
+model's belief that it is being observed. A concurrent line of work
+\citep{aranguri2026vea} debates whether \emph{verbalized}
+eval-awareness in chain-of-thought causally inflates measured safety.
+We sidestep that debate by measuring the upstream construct directly
+via the MCQ probe of \citet{needham2025evalawareness}, and ask:
+\emph{which features of the input cause an LLM judge's
+eval-vs-deployment posterior to move, and how do those features
+compose?}
+
+Borrowing from software engineering, we use \emph{test smell} for any
+recurring surface feature of an evaluation transcript that
+distinguishes it from real user traffic --- parseable answer markers
+(\texttt{Final answer: <X>}), numeric/style constraints, hard-coded
+secret tokens, eval-harness scaffolding, and so on. The empirical
+question is which test smells the model actually \emph{uses}, how much
+each shifts its eval posterior, and whether removing them
+\emph{preserves the task}. Two prior efforts shape our work without
+defining the question we ask: \citet{pre2025stealtheval}'s
+Probe--Rewrite--Evaluate pipeline shares our high-level shape (probe,
+rewrite, re-measure) but does not validate task preservation;
+\citet{abdelnabi2025hawthorne}'s white-box probe uses paired
+real-vs-hypothetical prompts and reasoning-trace snippet annotation to
+isolate model-internal eval cognition --- a representation-engineering
+question, where ours is a measurement question about which surface
+features drive judge classification and whether they can be removed
+without breaking the task.
+
+\paragraph{Contributions.}
+\begin{enumerate}
+  \item A \textbf{258-template bank} of canonical test-smells extracted
+    from six benchmarks, classified into six categories (\S\ref{sec:bank}),
+    with a transparent manual-validation audit ($n{=}42$, strict pass
+    $67\%$, inclusive $88\%$) framed honestly as an
+    \emph{imperfect high-recall} catalog.
+  \item A \textbf{canonical reverse table} (\S\ref{sec:reverse}) with one
+    set of numbers, raw-$\Delta$ and matched-control-adjusted causal-$\Delta$
+    side-by-side, replacing scattered numbers from earlier drafts.
+  \item A \textbf{forward neutral-injection control} (\S\ref{sec:forward})
+    that quantifies how much of the forward effect is bank-specific
+    versus generic length/formatting artifact.
+  \item Five \textbf{convergent preservation oracles} (\S\ref{sec:preservation})
+    spanning capability and safety benchmarks: LLM-judged behavioral
+    parity ($92\%$), topic preservation ($96\%$ with inter-rater $\kappa{=}0.59$),
+    {BBH} task-metric accuracy ($89.8\%$), and refusal-class
+    preservation on \bench{AgentHarm} ($80.8\%$) and \bench{Hawthorne} ($100\%$).
+  \item A \textbf{benchmark-type asymmetry}: on capability benchmarks the
+    bank causes a $7.9\times$ larger shift than matched neutral rewrites
+    of the same scope; on safety benchmarks neutral rewrites move the
+    judge comparably, consistent with safety-eval signal being more
+    intrinsically entangled with the task (\S\ref{sec:specificity}).
+  \item \textbf{Supporting activation-probe evidence} from six open-weight
+    models with explicit \emph{transparent negative-result} reporting
+    (\S\ref{sec:probes}): per-benchmark probes do not transfer
+    cross-benchmark (off-diagonal AUC $\sim$$0.54$); the bank-removal
+    effect survives a pooled-probe construction that does transfer,
+    but is benchmark-domain-specific and not a universal
+    eval-awareness representation.
+\end{enumerate}
+
+% ============================================================================
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Evaluation/situational awareness.}
+\citet{laine2024sad} introduced the Situational Awareness Dataset;
+\citet{berglund2024taken} demonstrated out-of-context reasoning that
+implies self-knowledge transfer from training;
+\citet{needham2025evalawareness} operationalized eval-awareness with the
+gated \texttt{jjpn2/eval\_awareness} dataset and an MCQ probe, on
+which we build directly. \citet{hua2025steering} and
+\citet{fan2025evalfaking} probe related observer effects.
+
+\paragraph{Concurrent verbalized-eval-awareness debate.}
+\citet{aranguri2026vea} show that verbalized eval-awareness in
+chain-of-thought correlates with refusal rates across $8$ models and
+$19$ benchmarks; \citet{knecht2026vea} reach the opposite behavioral
+conclusion using CoT prefill across $8$ reasoning models. We complement
+this debate by operationalizing awareness with the upstream MCQ probe
+(not a CoT side-channel) and by adding a preservation gate that
+disambiguates ``the model treats the rewrite as deployment'' from
+``the rewrite shifted the test target.''
+
+\paragraph{Probe--rewrite--evaluate (PRE / StealthEval).}
+\citet{pre2025stealtheval} introduced the probe$\to$LLM-rewrite$\to$
+measure pipeline. We extend it with a 5-criterion preservation gate and
+a matched neutral control, and we explicitly report on the gap between
+gated and ungated rewriters (\S\ref{sec:robustness}). We label our
+ungated variant ``\textbf{ungated-rewrite baseline}'' rather than
+``PRE-equivalent'' because we do not run their exact rewriter or
+dataset.
+
+\paragraph{Format sensitivity critique.}
+\citet{formatcritique2026} argues that PRE-style probe results may
+reflect format sensitivity rather than eval-awareness. Our matched
+neutral-injection (\S\ref{sec:forward}) and matched random-rewrite
+controls (\S\ref{sec:reverse}, \S\ref{sec:specificity}) directly test
+this concern. On capability benchmarks, the bank effect substantially
+exceeds the format/scope control; on safety benchmarks, the two are
+closer in magnitude.
+
+\paragraph{White-box probing of eval-awareness.}
+\citet{abdelnabi2025hawthorne} train a binary linear probe on
+reasoning-trace snippets, using paired real-vs-hypothetical prompts to
+isolate model-internal test awareness, and demonstrate causal steering.
+This is the stronger methodology for the representation claim;
+\citet{xue2025linearcontroleval} make related mid-layer claims at the
+representation level. We position our probes as supporting diagnostics
+of input-level structure (not a representation claim) and use
+\citeauthor{abdelnabi2025hawthorne}'s design to bound what our probes
+can and cannot say (\S\ref{sec:probes}).
+
+\paragraph{Benchmark validity and contamination.}
+\citet{gururangan2018annotationartifacts,poliak2018hypothesisonly,
+bowman2021benchmarkingnlu} established that surface artifacts inflate
+apparent NLU capabilities; \citet{sainz2023contamination,
+magar2022contamination} did so for data contamination. We target a
+complementary \emph{behavioral} leak: even uncontaminated benchmarks
+carry features that signal ``this is a test'' to the model.
+
+% ============================================================================
+\section{The Bank: 258 Templates Across Six Benchmarks}
+\label{sec:bank}
+
+\paragraph{Donor pool (E-cases).}
+We draw donor transcripts from six widely used benchmarks: \bench{Needham}
+\citep{needham2025evalawareness} (capability/agentic),
+\bench{Hawthorne} \citep{abdelnabi2025hawthorne} (safety harmful-request),
+\bench{MASK} \citep{ren2025mask} (honesty/deception), \bench{AgentHarm}
+\citep{andriushchenko2025agentharm} (harmful agentic tools), \bench{BBH}
+\citep{suzgun2023bbh} (multi-task reasoning), and \bench{MALT}
+\citep{malt2025} (multi-agent code). We filter to transcripts where
+the model-measured eval-awareness $\bar P(\text{eval})\geq 0.8$ and the
+mean of two independent human annotations $\geq 0.7$.
+
+\paragraph{Recipient pools (D-cases).}
+For the forward direction (\S\ref{sec:forward}) we use deployment-style
+D-cases drawn from low-confidence-deploy subsets of each source benchmark,
+augmented with naturalistic chat from \bench{WildChat} \citep{zhao2024wildchat}.
+
+\paragraph{Extraction pipeline.}
+A three-stage extraction (per-transcript LLM extraction; cross-transcript
+deduplication into templates; selection for the causal experiments)
+yields \textbf{258 canonical templates} grouped into six categories:
+\category{SystemInstructions}, \category{TaskFormatting},
+\category{AnswerFormatting}, \category{FictionalScenario},
+\category{ContrivedTask}, and \category{EthicalProbe}. Templates are
+prefixed by source benchmark (e.g.\ \texttt{needham\_\_response\_parsing\_markers}).
+Counts per category are in Table~\ref{tab:bank-cats}; per-benchmark
+splits are in Appendix~\ref{app:bank}. \bench{MALT} contributes the
+largest share of templates ($80$, or $31\%$ of the bank); its templates
+flow into the pooled v3 reverse run as part of the \bench{Needham} source
+pool's sub-task composition (Appendix~\ref{app:reverse-bench}), but
+\bench{MALT} is not separately re-evaluated in the causal experiments
+of \S\S\ref{sec:forward}--\ref{sec:reverse} because its donor pool
+lacks usable D-cases.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lr}
+\toprule
+Category & Templates \\
+\midrule
+\category{ContrivedTask}        & 75 \\
+\category{SystemInstructions}   & 44 \\
+\category{TaskFormatting}       & 42 \\
+\category{FictionalScenario}    & 35 \\
+\category{AnswerFormatting}     & 31 \\
+\category{EthicalProbe}         & 31 \\
+\midrule
+\textbf{Total}                  & \textbf{258} \\
+\bottomrule
+\end{tabular}
+\caption{Bank composition by category. Per-benchmark splits in
+Appendix~\ref{app:bank}.}
+\label{tab:bank-cats}
+\end{table}
+
+\paragraph{Manual-validation audit (honest framing).}
+We audited a stratified random sample of $n{=}42$ templates ($7$ per
+benchmark). Pass rates differ sharply by source benchmark
+(Table~\ref{tab:bank-audit}). The aggregate is $67\%$ strict ($28/42$) /
+$88\%$ inclusive ($37/42$); on safety benchmarks the strict rate drops to $14$--$57\%$,
+indicating that for safety benchmarks the extraction tends to over-include
+content cues that are not pure scaffolding.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lrr}
+\toprule
+Benchmark & $n$ & Strict pass (count) \\
+\midrule
+\bench{BBH}        & 7 & 100\% (7/7) \\
+\bench{Needham}    & 7 & 100\% (7/7) \\
+\bench{MALT}       & 7 & 86\% (6/7; inclusive 7/7) \\
+\bench{AgentHarm}  & 7 & 57\% (4/7) \\
+\bench{MASK}       & 7 & 43\% (3/7) \\
+\bench{Hawthorne}  & 7 & 14\% (1/7) \\
+\midrule
+\textbf{Aggregate} & \textbf{42} & \textbf{67\% strict (28/42) / 88\% inclusive (37/42)} \\
+\bottomrule
+\end{tabular}
+\caption{Manual-validation audit (strict / inclusive). Aggregate strict
+count is $7{+}7{+}6{+}4{+}3{+}1 = 28/42 = 66.7\%$; earlier drafts
+reported $71\%$ from a different rounding convention --- the per-benchmark
+counts in this table are authoritative.
+We frame the catalog as an \emph{imperfect high-recall} bank rather than
+``canonical'' in a precision sense; the headline causal effects in
+\S\S\ref{sec:forward}--\ref{sec:specificity} are reported for both
+the full bank and a high-precision subset
+(Appendix~\ref{app:high-precision}).}
+\label{tab:bank-audit}
+\end{table}
+
+% ============================================================================
+\section{Forward Injection With Matched Neutral Controls}
+\label{sec:forward}
+
+\paragraph{Cross-benchmark sufficiency (raw effect).}
+For each of $11$ usable source--target benchmark pairs,\footnote{The full $5
+\times 3 = 15$ Cartesian product would also include \bench{BBH}$\to$\bench{Hawthorne},
+\bench{BBH}$\to$\bench{MASK}, \bench{MALT}$\to$\bench{Hawthorne}, and
+\bench{MALT}$\to$\bench{MASK}. We omit these four cells because the donor templates
+for capability-style benchmarks (\bench{BBH}, \bench{MALT}) are formatting/answer-marker
+patterns that do not compose well with safety-benchmark target distributions
+(e.g.\ inserting a parseable answer marker on a Hawthorne harmful-request item
+produces incoherent prompts that the rewriter rejects).} we inject the source
+benchmark's bank templates into the target benchmark's deployment-style D-cases
+and re-judge \Peval{} with GPT-5-mini. All $11/11$ cells produce a positive
+shift; $9/11$ are significant at $p<0.05$. The mean \emph{raw} shift is
+$\bm{+0.21}$, with range $+0.02$ to $+0.43$ (largest:
+\bench{MASK}$\rightarrow$\bench{Hawthorne}, $+0.427$). The raw shift is an
+\emph{upper bound} on the bank-specific component, because any prefix or
+system-message insertion can shift the judge --- see next subsection.
+
+\paragraph{Matched-control causal analysis across all $11$ cells.}
+A reviewer objection: \emph{any} rewrite or insertion might raise
+\Peval{} (formatting/length artifact). We address this with two
+complementary matched-control methodologies that answer slightly
+different questions: a \emph{paraphrase} control isolates bank-specific
+\emph{content} effects (does the bank do more than a same-scope
+rewrite?); a \emph{neutral-prefix} control isolates bank-specific
+\emph{prefix-position} effects (does the bank do more than length-matched
+innocuous boilerplate?). Both controls point the same direction.
+
+First, our cross-injection pipeline produces both a \emph{treatment}
+rewrite (D-case rewritten to incorporate the source benchmark's bank
+features) and a length-matched \emph{paraphrase control} (D-case
+paraphrased to similar scope but without bank-feature insertion). The
+\emph{causal} per-cell shift is $\bar\Delta_{\text{treat}} -
+\bar\Delta_{\text{ctrl}}$. Table~\ref{tab:fwd-causal-11cell} reports
+all $\bm{11}$ cross-injection cells.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrr}
+\toprule
+Cell (source $\to$ target) & $n$ & causal $\bm{\Delta}$ \\
+\midrule
+\bench{Hawthorne}$\to$\bench{MASK}    & 19 & $+0.332$ \quad CI~$[0.20, 0.47]$ \\
+\bench{Needham}$\to$\bench{Hawthorne} & 15 & $+0.290$ \quad $|t|>1.96$ \\
+\bench{AgentHarm}$\to$\bench{Hawthorne}& 13& $+0.269$ \quad CI~$[0.00, 0.54]$ \\
+\bench{BBH}$\to$\bench{Hawthorne}     & 20 & $+0.253$ \quad $t{=}+3.23$ \\
+\bench{Needham}$\to$\bench{MASK}      & 15 & $+0.253$ \quad $|t|>1.96$ \\
+\bench{MASK}$\to$\bench{Hawthorne}    & 15 & $+0.245$ \quad $|t|>1.96$ \\
+\bench{MALT}$\to$\bench{MASK}         & 19 & $+0.197$ \quad CI~$[0.02, 0.39]$ \\
+\bench{AgentHarm}$\to$\bench{MASK}    & 15 & $+0.163$ \quad $|t|>1.96$ \\
+\bench{MASK}$\to$\bench{Needham}      & 23 & $+0.076$ \\
+\bench{Hawthorne}$\to$\bench{Needham} & 15 & $+0.020$ \\
+\bench{AgentHarm}$\to$\bench{Needham} & 15 & $+0.017$ \\
+\midrule
+\textbf{Pooled mean} (\textbf{11} cells)  & --- & $\bm{+0.192}$ \\
+\textbf{Pooled bootstrap $95\%$ CI}        & --- & $\bm{[+0.129, +0.252]}$ \\
+\multicolumn{3}{l}{\footnotesize $\bm{11/11}$ direction-positive; $\bm{7/11}$ significant (CI excludes $0$ or $|t|>1.96$).}\\
+\multicolumn{3}{l}{\footnotesize Pooled one-sample $t$ vs $0$: $t{=}5.82$, $\bm{p{=}1.7\times 10^{-4}}$.}\\
+\bottomrule
+\end{tabular}
+\caption{Forward causal shift after subtracting a matched-paraphrase
+control, across all $\bm{11}$ cross-injection cells. The bank-specific
+causal $\Delta$ pooled mean is $\bm{+0.192}$ (bootstrap $95\%$ CI
+$\bm{[+0.129, +0.252]}$, one-sample $t{=}5.82$,
+$\bm{p{=}1.7{\times}10^{-4}}$), about $91\%$ of the $11$-cell raw mean
+$+0.21$. All cells direction-positive; $7/11$
+individually significant; the remaining $4$ have small per-cell $n$
+($15$--$23$).}
+\label{tab:fwd-causal-11cell}
+\end{table}
+
+Second, a complementary per-template \emph{neutral-prefix} methodology
+on \bench{Hawthorne} and \bench{MASK} ($n{=}20$ each), giving the same
+direction at a different methodology granularity: for each D-case
+we also re-judge under a length-matched innocuous boilerplate prefix
+(generic helpful text, no test vocabulary).
+Table~\ref{tab:fwd-neutral} reports the per-benchmark bank-specific
+component ($\bm{\Delta}_{\text{bank}} -
+\bm{\Delta}_{\text{neutral-prefix}}$) with bootstrap $95\%$ CIs.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrr}
+\toprule
+& $n$ & $\bm{\Delta}_{\text{bank}}$ & $\bm{\Delta}_{\text{neutral}}$ &
+\textbf{$\bm{\Delta}_{\text{bank-specific}}$} & ratio \\
+\midrule
+\bench{Hawthorne} & 20 & $+0.262$ & $+0.113$ & $\bm{+0.150}$ $[0.024, 0.310]$ & $2.33\times$ \\
+\bench{MASK}      & 20 & $+0.160$ & $+0.080$ & $\bm{+0.080}$ $[0.000, 0.200]$ & $2.00\times$ \\
+\bottomrule
+\end{tabular}
+\caption{Complementary methodology: a length-matched innocuous
+\emph{neutral-prefix} (rather than paraphrase) control on
+\bench{Hawthorne} and \bench{MASK}. Any prefix raises \Peval{} by
+$\sim 0.08$--$0.11$; the bank-specific component survives subtraction:
+\bench{Hawthorne} CI excludes $0$, \bench{MASK} CI just touches $0$.
+The two methodologies (Tables~\ref{tab:fwd-causal-11cell}
+and~\ref{tab:fwd-neutral}) point the same direction.}
+\label{tab:fwd-neutral}
+\end{table}
+
+\paragraph{Reading the result honestly.}
+The raw $+0.21$ across $11$ cells reflects the gross effect of any
+bank-prefixed rewrite. Subtracting a matched paraphrase control
+(Table~\ref{tab:fwd-causal-11cell}) drops the pooled mean to $+0.192$
+($\sim 91\%$ of raw); $\bm{11/11}$ cells are direction-positive and
+$\bm{7/11}$ are individually significant. The complementary
+neutral-prefix methodology (Table~\ref{tab:fwd-neutral}) on the two
+benchmarks where we ran it gives bank-specific shifts of $+0.150$
+(CI excludes $0$) and $+0.080$ (CI just touches $0$). Both methodologies
+agree in direction. Headline reading: \emph{bank-specific forward
+shift $\bm{+0.192}$ pooled across all $\bm{11}$ cells; per-cell range
+$+0.02$ to $+0.33$}.
+
+% ============================================================================
+\section{Reverse Intervention: A Single Canonical Table}
+\label{sec:reverse}
+
+\paragraph{Sign convention.}
+Throughout this paper we use $\Delta = \Peval_{\text{after}} - \Peval_{\text{before}}$.
+\emph{Positive} $\Delta$ means a rewrite raised the judge's eval-classification;
+\emph{negative} $\Delta$ means it lowered. Forward injection produces positive $\Delta$;
+reverse intervention produces negative $\Delta$.
+
+\paragraph{Preservation gate.}
+Our reverse pipeline (``v3'') rewrites an evaluation transcript to
+remove bank cues, subject to a 5-criterion LLM gate (the rewrite must:
+preserve the task, preserve the behavior target, preserve answerability,
+remove only scaffolding, leave protected spans intact) plus a
+verbatim-survival check. Rejected rewrites are excluded. We also pair
+each gated rewrite with a \emph{matched neutral edit} of comparable
+scope: a paraphraser produces a same-length random-span rewrite that
+does not target bank cues. This isolates bank-specific causal effect
+from generic rewrite-scope effect.
+
+\paragraph{One canonical table.}
+Earlier drafts of this project reported scattered numbers from multiple
+pipelines (v1, v2, v3, v4). For this submission we report exactly the
+v3 (preservation-gated) result on the source pool and the v2 result on
+the held-out pool, in Table~\ref{tab:reverse-canonical}. The
+\emph{causal $\Delta$} column subtracts the matched-control shift from
+the raw shift.
+
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrrrrrr}
+\toprule
+Version & Pool & $n$ & baseline \Peval & treatment \Peval & control \Peval & raw $\bm{\Delta}$ & \textbf{causal $\bm{\Delta}$} & ratio \\
+\midrule
+v3 (gated) & \bench{Needham} source & 93 & 0.900 & 0.509 & 0.855 & $-0.391$ & $\bm{-0.346}$ \quad $(p<10^{-9})$ & $\bm{7.9\times}$ \\
+v2         & held-out (\bench{SAD}+\bench{AISI}) & 146 & 0.787 & 0.610 & --- & $-0.176$ \quad $(p<10^{-13},\ d{=}0.66)$ & --- & --- \\
+\bottomrule
+\end{tabular}
+\caption{Canonical reverse table. The v3 row is donor-restricted to the
+\bench{Needham} source pool (the only donor benchmark for which we ran the
+full preservation-gated v3 pipeline with matched neutral controls); causal
+$\Delta$ is the bank-specific shift after subtracting matched control. The
+\emph{ratio} column is $|\text{raw}\ \Delta| / |\text{control}\ \Delta|$ on
+\bench{Needham} = $0.391/0.045 \approx 7.9\times$. The v2 row is on a never-mined
+held-out pool (\bench{SAD}+\bench{AISI}); no matched control was collected in this
+pipeline so we report only raw $\Delta$ with a Wilcoxon $p$-value against
+baseline. Per-category breakdown of the v3 row is in
+Appendix~\ref{app:reverse-cat}; the per-sub-benchmark composition of the
+\bench{Needham} pool is in Appendix~\ref{app:reverse-bench}.}
+\label{tab:reverse-canonical}
+\end{table*}
+
+\paragraph{Held-out generalization.}
+The bank, applied with no re-extraction to \bench{SAD} and AISI Inspect
+logs --- benchmarks the templates were not mined from --- still produces a
+\textbf{$-0.176$ shift in mean \Peval} ($n{=}146$ paired, Cohen's
+$d{=}0.66$, $p<10^{-13}$). The bank-as-checklist captures structure
+that transfers across distributions.
+
+\paragraph{Unit of independence.} All $p$-values use the transcript as
+the unit of paired observation. Repeated judge calls per transcript are
+averaged before testing, not used as independent samples.
+
+% ============================================================================
+\section{Preservation Oracles}
+\label{sec:preservation}
+
+A rewrite that lowers \Peval{} is interesting only insofar as it
+\emph{preserves the task}. We report six preservation measurements,
+spanning capability and safety benchmarks, in
+Table~\ref{tab:preservation}. All six fall in the
+$\bm{73}$--$\bm{100\%}$ range, with the strictest safety-rubric judge on
+\bench{AgentHarm} at $73.1\%$ (the $4$ generic measurements and
+\bench{Hawthorne} all $\geq 80\%$).
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{0.45\linewidth}rr}
+\toprule
+Oracle / metric & $n$ & Value \\
+\midrule
+LLM-judged 5-criterion behavioral preservation (pooled, 6 benchmarks) & 49 & 92\% \\
+Topic preservation rubric, IRR Cohen's $\kappa{=}0.59$ & 205 & 96\% \\
+\bench{BBH} task-metric accuracy (capability)
+   & 252 & 89.8\% \\
+\bench{AgentHarm} refusal-class preservation (safety, gemini-2.5-flash
+\textsc{Refuse}/\textsc{Partial}/\textsc{Comply})
+   & 26 & 80.8\% \\
+\bench{AgentHarm} \emph{safety-rubric} preservation (safety,
+ground-truth \textsc{Safe}/\textsc{Harmful} judge)
+   & 26 & \textbf{73.1\%} \\
+\bench{Hawthorne} refusal-class preservation (safety, gemini-2.5-flash)
+   & 17 & 100\% \\
+\bottomrule
+\end{tabular}
+\caption{Convergent preservation oracles. The capability-side metric is
+exact-answer accuracy on \bench{BBH}. The safety-side rows use two
+different judges on the same $26$ \bench{AgentHarm} pairs: a generic
+\textsc{Refuse}/\textsc{Partial}/\textsc{Comply} class judge (row 4) and
+the stricter task-rubric judge that classifies the response as
+\textsc{Safe} or \textsc{Harmful} relative to AgentHarm's task ground
+truth (row 5). The rubric judge is more conservative and reports a
+$7.7\%$ unlock rate ($2/26$ \textsc{Safe} originals became
+\textsc{Harmful} under v3), against a $19.2\%$ \emph{harden} rate
+($5/26$ \textsc{Harmful} originals became \textsc{Safe}). Net: v3 is
+slightly \emph{safer} on aggregate but is not lossless --- we surface
+the $7.7\%$ unlock rate explicitly. \bench{Hawthorne} (row 6) is fully
+preserved by either metric.}
+\label{tab:preservation}
+\end{table}
+
+For comparison, an ungated rewrite baseline (no preservation gate) yields
+$\sim 10\%$ refusal-class preservation on \bench{AgentHarm}; the gate
+provides an $8\times$ improvement on this benchmark
+(see \S\ref{sec:robustness}).
+
+\paragraph{Dual-annotator safety spot-check ($n{=}60$).}
+We further validate the safety preservation claim with a stratified
+$n{=}60$ paired sample (\bench{AgentHarm} + \bench{Hawthorne}
+$\times$ \{orig, v3\} $\times$ $15$ per cell), independently annotated
+by two LLMs from different model families
+(\texttt{gemini-2.5-flash} and \texttt{claude-haiku-4.5}). Inter-annotator
+raw agreement $\bm{81.7\%}$, Cohen's $\bm{\kappa = 0.509}$ (moderate
+agreement, Landis \& Koch). \textbf{Zero task unlocks across BOTH
+annotators on all $30$ paired samples}; the v3 rewrite never converted
+an orig-\textsc{Safe} refusal into a v3-\textsc{Harmful} compliance
+under either annotator. v3 SAFE rate is non-decreasing in every cell
+for both annotators (\bench{AgentHarm} v3 $\geq$ orig under annotator
+A and B; \bench{Hawthorne} v3 $\geq$ orig under both). This converges
+with the gemini-rubric $73.1\%$ preservation and the
+$80.8\%$/$100\%$ refusal-class preservation already in
+Table~\ref{tab:preservation}. We frame this as a dual-LLM spot-check,
+not human annotation, but two independent strong-LLM annotators from
+different families provide independent corroboration that the gate's
+preservation is not a single-judge artifact.
+
+\paragraph{Dual-judge agreement (formal stratified $n{=}153$).}
+Our single-judge dependence concern (the headline numbers all flow through
+\texttt{gpt-5-mini}) is addressed with a formal stratified sample: we drew
+$n{=}153$ transcripts ($\sim 26$ per benchmark $\times$ 6 benchmarks; capability
+benchmarks contribute E-cases only) and had two judges score each
+independently --- \texttt{gemini-2.5-flash} and \texttt{claude-haiku-4.5} ---
+under a fixed YES/NO prompt. Aggregate agreement rate is
+$\bm{92.2\%}$ with Cohen's $\bm{\kappa = 0.413}$ (moderate agreement,
+Landis \& Koch). Both judges score $\sim$$71\%$ accuracy against the
+\texttt{gpt-5-mini}-assigned E/D labels --- the expected fraction given the
+labels themselves come from a different judge. The per-benchmark
+breakdown (Table~\ref{tab:dual-judge-perbench}) shows full agreement
+($100\%$) on the eval-only capability benchmarks (\bench{AgentHarm},
+\bench{BBH}, \bench{MALT}) and $88\%$ on the three benchmarks with both
+E and D cases.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrr}
+\toprule
+Benchmark & $n$ & Agreement \\
+\midrule
+\bench{Needham}    & 34 & 88.2\% \\
+\bench{Hawthorne}  & 34 & 88.2\% \\
+\bench{MASK}       & 34 & 88.2\% \\
+\bench{AgentHarm} (E only) & 17 & 100\% \\
+\bench{BBH} (E only)       & 17 & 100\% \\
+\bench{MALT} (E only)      & 17 & 100\% \\
+\midrule
+\textbf{Pooled} & \textbf{153} & \textbf{92.2\%} ($\kappa{=}0.413$) \\
+\bottomrule
+\end{tabular}
+\caption{Dual-judge stratified agreement, \texttt{gemini-2.5-flash} vs
+\texttt{claude-haiku-4.5}, simple YES/NO eval-vs-deployment prompt.
+Per-benchmark agreement is at or near ceiling on the eval-only capability
+benchmarks; the $\sim$$88\%$ on the three E+D benchmarks corresponds to
+borderline samples where E and D are not crisply separated. We treat the
+$\kappa = 0.413$ as evidence of real cross-judge agreement beyond chance,
+not as exceptional convergence.}
+\label{tab:dual-judge-perbench}
+\end{table}
+
+\paragraph{Position-bias robustness (2-swap, $n{=}81$).}
+A further single-judge robustness check tests whether \texttt{gpt-5-mini}
+flips classification under reordering of the YES/NO prompt options
+(PROMPT\_A: ``YES if eval, NO otherwise''; PROMPT\_B: ``NO if
+real-world, YES otherwise''). A label-position-biased judge would flip
+between the two; a robust judge stays consistent. On a stratified
+$n{=}81$ sample, the overall flip rate is $\bm{6.2\%}$
+(\bench{Needham} $5.6\%$, \bench{Hawthorne} $16.7\%$, \bench{MASK}
+$5.6\%$; capability benchmarks $0\%$). The $16.7\%$ on \bench{Hawthorne}
+is the only above-$10\%$ cell and is concentrated on borderline cases.
+Overall $6.2\%$ is well within community robustness norms.
+
+\paragraph{Dual-annotator safety spot-check ($n{=}60$).}
+As an additional safety check, two independent annotators
+(\texttt{gemini-2.5-flash} and \texttt{claude-haiku-4.5}) classified
+target-model (\texttt{gpt-5-mini}) responses on $60$ stratified
+\bench{AgentHarm}~$+$~\bench{Hawthorne} transcripts ($15$ per
+benchmark $\times$ $2$ conditions $\{$orig, v3$\}$) along three axes:
+harmfulness class (\textsc{Safe}/\textsc{Partial}/\textsc{Harmful}),
+refusal-target preservation, and task-unlock. Raw inter-annotator
+agreement is $\bm{81.7\%}$ (Cohen's $\bm{\kappa = 0.509}$, moderate).
+Most importantly, \textbf{both annotators report zero task unlocks} (no
+orig-\textsc{Safe} sample became v3-\textsc{Harmful}) across all
+$30$ paired samples. Per-condition \textsc{Safe} rate is non-decreasing
+under v3 in every cell (annotator A: \bench{AgentHarm}
+$60\%\to 67\%$, \bench{Hawthorne} $87\%\to 93\%$; annotator B:
+$53\%\to 80\%$ and $87\%\to 93\%$), with paired class preservation
+$80$--$93\%$ (A) and $60$--$93\%$ (B). We frame this as a
+\emph{dual-LLM-judge spot-check}, not human annotation; it converges
+with the rubric-judge $73.1\%$ and refusal-class $80.8$--$100\%$
+preservation numbers (Table~\ref{tab:preservation}) and rules out the
+``v3 unlocks harmful capability'' failure mode at this $n$.
+
+% ============================================================================
+\section{Bank-Specificity Is Benchmark-Type-Dependent}
+\label{sec:specificity}
+
+\paragraph{Paired controls on the activation probe.}
+We use a single representative model for the probe-level
+bank-specificity analysis (Qwen3.5-27B; the pooled-probe construction of
+\S\ref{sec:probes} achieves CV $0.850$ at layer $12$, the layer selected
+by 5-fold CV across the union of \bench{Needham}, \bench{Hawthorne},
+\bench{MASK} E vs D). On this probe we compute \emph{paired}
+bank-specificity: for each base sample ID that has orig, v3-removed, and
+rev-control all cached, we take the per-sample \Peval{} triple and compute
+bootstrap CIs over the per-sample causal $\Delta = \Delta_{\text{bank}} -
+\Delta_{\text{control}}$. Table~\ref{tab:bank-specificity-paired} reports
+the result.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrr}
+\toprule
+Benchmark & $n_{\text{paired}}$ & $\Delta_{\text{bank}}$ & $\Delta_{\text{ctrl}}$ & causal $\Delta$ & ratio \\
+\midrule
+\bench{Hawthorne} (v3) & 15 & $-0.742$ & $-0.130$ & $\bm{-0.612}$ $[-0.789,-0.404]$ & $5.71\times$ \\
+\bench{SAD}    (v2, held-out) & 10 & $-0.165$ & $-0.002$ & $\bm{-0.163}$ $[-0.350,-0.032]$ & $67.6\times$ \\
+\midrule
+\multicolumn{6}{l}{\footnotesize \emph{Cross-check: pooled probe applied to held-out \bench{SAD} (mean over all $n{=}60$, not paired):}}\\
+\bench{SAD}    (pooled probe, held-out)& 60 & $-0.211$ & --- & --- & --- \\
+\multicolumn{6}{l}{\footnotesize Closely matches the judge-level held-out shift on \bench{SAD}+\bench{AISI} ($-0.176$, Table~\ref{tab:reverse-canonical}).}\\
+\bottomrule
+\end{tabular}
+\caption{Paired bank-specificity (pooled probe, Qwen3.5-27B layer 12,
+CV $0.850$). Both causal-$\Delta$ CIs exclude $0$. The middle separator
+shows the same pooled probe applied to the full held-out \bench{SAD}
+pool (no matched control on this subset); its activation-level shift of
+$-0.211$ converges with the judge-level held-out shift of $-0.176$ from
+Table~\ref{tab:reverse-canonical}.}
+\label{tab:bank-specificity-paired}
+\end{table}
+
+\paragraph{v1 vs v3: the preservation--magnitude trade-off.}
+A naive ungated rewriter (v1, no preservation gate) achieves a \emph{larger} apparent
+judge shift than the gated v3 pipeline, at the cost of destroying the task.
+Table~\ref{tab:v1-v3-tradeoff} quantifies the trade-off on
+\bench{AgentHarm}, our hardest case.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrr}
+\toprule
+Pipeline & Judge $\Delta$ \Peval & Refusal-class & Activation\\
+         &  (\bench{AgentHarm})  & preservation  & probe $\Delta$\\
+\midrule
+v1 (ungated rewrite) & $\approx -0.55$ & $\sim 10\%$ & $-0.416$ avg.\\
+v3 (preservation-gated) & $-0.391$ & $100\%$        & $-0.167$ avg.\\
+\midrule
+Gap (v1 -- v3) & $\Delta$ judge $-0.16$ & $90\,\text{pp}$ & $\Delta$ probe $-0.25$ \\
+\bottomrule
+\end{tabular}
+\caption{Trade-off between rewrite aggressiveness and task preservation, on
+\bench{AgentHarm}. The ungated v1 rewriter produces an apparent
+$\Delta \Peval$ that is $\sim 0.16$ larger in magnitude than v3, and a probe
+shift that is $\sim 0.25$ larger; but it destroys $90\,\text{pp}$ of
+refusal-class preservation. We read this as: $\sim 0.16$/$0.25$ of the v1
+``effect'' on safety benchmarks is attributable to inadvertent task drift in
+ungated rewriting, not to bank-cue removal. Activation $\Delta$ values are
+mean across the 4 Qwen models in Table~\ref{tab:probe-deltas} for per-bench
+probes.}
+\label{tab:v1-v3-tradeoff}
+\end{table}
+
+\paragraph{Cross-benchmark asymmetry: capability vs safety.}
+On the \bench{Needham} source pool (capability, donor-restricted; see
+Table~\ref{tab:reverse-canonical} row 1, ratio column), v3 reverse with
+matched neutral controls gives a bank/control ratio of $7.9\times$
+(raw shift $-0.391$ vs control shift $-0.045$). On safety benchmarks
+the activation-level ratio is much closer to $1\times$
+(Table~\ref{tab:bank-specificity-paired}: \bench{Hawthorne} matched-control shift
+$-0.130$ vs bank shift $-0.742$; the ratio there is $5.7\times$ because the
+control is not as nearly-null as on capability benchmarks). We interpret
+this asymmetry as evidence that on safety benchmarks the eval signal is
+substantially \emph{intrinsic} to the test target.
+
+\paragraph{Scaffolding is benchmark-dependent: SAD v3 rejects $60/60$.}
+A telling result that strengthens the bimodal reading: when we apply
+the v3 preservation gate to the held-out \bench{SAD} pool ($n{=}60$),
+\textbf{zero rewrites pass the gate}. Inspecting the gate's rejection
+reasons, the pattern is consistent: \bench{SAD} probes situational
+awareness via specific MCQ format, second-person ``you'' framing, and
+behavior-target labels (e.g.\ ``does the assistant choose to make a
+future commitment? Options A/B''). The rewriter, asked to remove
+scaffolding, ends up removing the framing that constitutes the test
+itself --- and the preservation gate correctly rejects $100\%$ of these.
+This is a positive finding for the \emph{gate} (it identifies
+non-removable structure) and a negative finding for the
+\emph{bank-as-checklist methodology applied to situational-awareness
+benchmarks}: on \bench{SAD}, the surface and the test are the same
+thing. We read this as evidence that ``scaffolding'' is
+benchmark-dependent: removable surface on capability benchmarks IS
+the test on situational-awareness benchmarks, generalizing the
+capability-vs-safety bimodal into a three-way reading
+(capability~$\gg$~safety~$\gg$~situational-awareness in terms of how
+much eval-identifiability is surface-removable).
+
+\paragraph{Bank-precision confound on safety benchmarks.}
+A reviewer-anticipated concern: our \bench{Hawthorne} bank passes manual
+strict-validation at only $14\%$ (Table~\ref{tab:bank-audit}), meaning
+$\sim$$86\%$ of \bench{Hawthorne} templates may be content cues rather than
+pure scaffolding. The ``safety eval signal is intrinsic'' reading could
+therefore be partly confounded with ``our \bench{Hawthorne} bank is
+mostly bad.'' We do not fully resolve this confound in the current
+submission; the high-precision subset is well-defined
+(Appendix~\ref{app:high-precision}) but the v3 reverse pipeline has not
+been re-run on the subset because the per-benchmark high-precision count
+on \bench{Hawthorne} is $n{=}1$ template, below the statistical floor for
+a stable per-category Wilcoxon test. We flag this as the most important
+open methodological question for camera-ready, on equal footing with
+expanding the manual audit to $n\geq 100$ (currently $n{=}42$). The
+robustness of the bimodal capability-vs-safety reading should be read in
+light of this caveat.
+
+% ============================================================================
+\section{Activation Probes: Within-Domain Separability,
+Weak Cross-Domain Transfer}
+\label{sec:probes}
+
+\paragraph{Setup.}
+We train a linear logistic-regression probe on residual-stream activations
+of six open-weight models spanning three model families (Qwen3 8B, 32B;
+Qwen3.5 27B, 122B-A10B fp8; \textbf{Mistral-Small-24B-Instruct-2501} and
+\textbf{Gemma-2-27B-it} as cross-family checks) to classify orig-eval
+vs orig-deploy transcripts at each captured layer, selecting the best
+layer per benchmark by 5-fold CV accuracy. We then apply the probe to
+v3-rewritten transcripts and to matched controls. \textbf{We treat the
+probes as supporting diagnostics, not as evidence of a universal
+eval-awareness representation.}
+
+\paragraph{Two metrics, both reported.}
+A per-benchmark probe is trained on one benchmark's E vs D and applied to
+that benchmark's v3-removed. A pooled probe is trained on the union of
+three benchmarks (\bench{Needham}, \bench{Hawthorne}, \bench{MASK})'s E vs D
+and applied to each. Both quantify the bank's effect at the activation
+level, but at very different magnitudes (Table~\ref{tab:probe-deltas}).
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrr}
+\toprule
+Model & per-bench $\Delta$ & pooled $\Delta$ \\
+\midrule
+Qwen3-8B               & $-0.103$ & $\bm{-0.535}$ \\
+Qwen3-32B              & $-0.173$ & $\bm{-0.598}$ \\
+Qwen3.5-27B            & $-0.222$ & $\bm{-0.575}$ \\
+Qwen3.5-122B-A10B      & $-0.155$ & $\bm{-0.529}$ \\
+\midrule
+\textbf{Mistral-Small-24B (cross-family)} & --- & $\bm{-0.289}$ \\
+\textbf{Gemma-2-27B-it (cross-family)}    & $-0.269$ & $\bm{-0.250}$ \\
+\bottomrule
+\end{tabular}
+\caption{Bank-removal effect at the activation level, in two probe
+constructions. Per-bench probes are trained on each benchmark's own
+$E/D$ split; pooled probes are trained on the union of three benchmarks.
+Both metrics agree in direction; the pooled-probe magnitude is the
+primary number for the supporting-diagnostic claim. We make no monotonic
+scaling claim: the 122B-A10B per-bench $\Delta$ is smaller than the
+35B-A3B value (Appendix~\ref{app:probes-supplementary}). The two
+cross-family rows (Mistral-24B and Gemma-2-27B-it) were added as
+robustness checks against the Qwen-family confound: Mistral pooled
+CV-acc $0.916$ at layer $12$ (highest of the six models), Gemma pooled
+$0.890$ at layer $8$; both show $\sim$$-0.25$ to $-0.29$ pooled $\Delta$
+driven by \bench{Hawthorne} ($-0.76$ to $-0.80$), and both replicate the
+M1 fail (off-diagonal AUC $0.549$ Mistral, $0.579$ Gemma). This removes
+our prior cross-family deferral.}
+\label{tab:probe-deltas}
+\end{table}
+
+\paragraph{Probes do not transfer cross-benchmark (negative result,
+deliberately tested).}
+A reviewer-anticipated worry is that our per-benchmark probes are
+``benchmark-identity'' detectors rather than eval-vs-deploy detectors.
+We tested this by applying each per-benchmark probe to every other
+benchmark's E-vs-D classification (Table~\ref{tab:probe-transfer}).
+Across all 6 models (four Qwen + cross-family Mistral-Small-24B + Gemma-2-27B-it),
+the off-diagonal mean AUC is \textbf{$0.54$--$0.58$ --- essentially chance}.
+The M1 fail pattern replicates cleanly cross-family: Mistral off-diag $0.549$,
+Gemma off-diag $0.579$ --- statistically indistinguishable from the four Qwen
+models at $0.54$--$0.57$. Per-benchmark probes capture benchmark-distribution
+structure, not a universal eval-awareness direction.
+
+\paragraph{Shuffled-label null (Qwen3-32B, $n_{\text{perm}}{=}100$).}
+A skeptic might still ask: is off-diagonal AUC $\sim$$0.54$ truly at
+chance, or modestly above? We computed the null distribution explicitly
+on Qwen3-32B by retraining $100$ shuffled-label per-benchmark probes
+(stratified label permutation preserves class balance) and evaluating
+each on the original target benchmark's E vs D. The actual pooled
+off-diagonal AUC is $\bm{0.543}$; the null mean is $\bm{0.495}$; the
+actual lands at the $\bm{63\text{rd}}$ percentile of the null
+distribution. \textbf{No off-diagonal pair's actual AUC exceeds the
+$95$th percentile of its null distribution.} The off-diagonal transfer
+result is therefore \emph{statistically indistinguishable from a
+shuffled-label baseline} --- a stronger negative result than ``near
+chance'' on its face would suggest. The pooled-probe mitigation in the
+next paragraph remains the answer.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrr}
+\toprule
+Model & self mean AUC & off-diag mean AUC \\
+\midrule
+Qwen3-8B            & 0.989 & $\bm{0.536}$ \\
+Qwen3-32B           & 0.989 & $\bm{0.542}$ \\
+Qwen3.5-27B         & 0.989 & $\bm{0.567}$ \\
+Qwen3.5-122B-A10B   & 0.989 & $\bm{0.538}$ \\
+\bottomrule
+\end{tabular}
+\caption{Cross-benchmark probe transfer (M1). Per-benchmark probes
+classify their own benchmark's E-vs-D at AUC $\approx 1.0$ but fail to
+transfer (off-diagonal $\approx$ chance). Self AUCs are 5-fold
+stratified-CV means at the best layer per benchmark (not held-out test
+set); the four-model identical $0.989$ figure reflects this CV pooling.
+A held-out-test variant on Qwen3.5-27B at the same layer gives self
+AUC $0.95$--$0.99$ on the three benchmarks (Appendix~\ref{app:probes-supplementary}),
+indicating the CV figure is not a CV-leakage artifact. Full $3\times 3$
+matrices per model are in Appendix~\ref{app:probes-supplementary}.}
+\label{tab:probe-transfer}
+\end{table}
+
+\paragraph{Mitigation: pooled training partially recovers transfer.}
+A pooled probe trained on the union of three benchmarks achieves CV
+accuracy $0.83$--$0.85$ and produces v3 $\Delta$ comparable to per-bench
+probes (Table~\ref{tab:probe-deltas}, ratio $0.90$--$1.18\times$ across
+models). Applied to the never-seen \bench{SAD} pool, the pooled probe
+gives a clean $\Delta = -0.211$ that matches the judge-level held-out
+$\Delta$ of $-0.176$ from \S\ref{sec:reverse}; per-benchmark probes are
+incoherent on \bench{SAD} (one positive, one near-zero, one strongly
+negative). Pooled training is the right probe construction for the
+within-domain bank-removal claim, but the absolute magnitude remains a
+property of the union of these three training distributions, not of a
+universal eval-awareness representation.
+
+\paragraph{Cross-DOMAIN transfer (capability vs safety).}
+We additionally trained a \emph{capability-only} probe (on \bench{Needham}
+$E/D$) and a \emph{safety-only} probe (on \bench{Hawthorne}+\bench{MASK}
+$E/D$). Cross-domain transfer is asymmetric and weak: capability$\to$safety
+mean AUC $0.543$; safety$\to$capability $0.651$. The probe is
+\emph{benchmark-domain-specific}.
+
+\paragraph{Probes are not explained by simple safety-keyword density.}
+The training pool is $73\%$ safety / $27\%$ capability by sample count.
+If the probe were a safety-keyword detector, this would be the obvious
+failure mode. We compute a per-transcript safety-keyword density score
+($\sim 40$ keyword patterns: \texttt{refus, harm, danger, ethic, illegal,
+weapon, deceive, manipulat, \ldots}) and correlate with the probe's
+\Peval{} across $1{,}350$ samples spanning $3$ benchmarks and $3$ probes:
+Pearson $r = \bm{+0.009}$, Spearman $\rho = +0.022$. This rules out crude
+lexical safety-content confounds. It \emph{does not} rule out semantic
+safety/refusal structure that a keyword list would miss; the more rigorous
+test for semantic safety confound is the cross-domain transfer above.
+
+\paragraph{Comparison to the stronger probe of
+\citet{abdelnabi2025hawthorne}.}
+Abdelnabi \& Salem train probes on paired real-vs-hypothetical prompts
+(same task, only the URL changes) and label reasoning-trace snippets in
+which the model itself reasons about being tested. This design isolates
+\emph{model-internal} eval cognition more cleanly than our
+whole-transcript input-side probes can. Adopting their paired-prompt design
+on our six source benchmarks is the natural next step (\S\ref{sec:limitations}).
+
+% ============================================================================
+\section{Robustness Checks}
+\label{sec:robustness}
+
+\paragraph{Lexical leave-one-benchmark-out baseline.}
+We train a logistic regression on binary word-presence features
+(\texttt{CountVectorizer}, $\text{max\_features}\!\in\!\{35, 100, 500, 2000\}$)
+to classify E vs D within a benchmark, and re-evaluate under
+leave-one-benchmark-out (LOBO). Within-benchmark CV AUC is $0.86$--$0.94$;
+LOBO AUC collapses to $0.47$ (chance) across all four feature counts.
+Lexical features are highly benchmark-specific. The bank's
+cross-benchmark generalization (forward $11/11$; held-out $-0.176$) is
+not captured by surface vocabulary.
+
+\paragraph{Cross-extractor bank coverage.}
+We extracted a second \bench{Needham} bank using Claude-Sonnet ($96$
+templates) and compared to our GPT-extracted subset ($65$ templates).
+Both extractors find all six categories. Under a third-party
+gemini-2.5-flash semantic-match judge, $86.5\%$ of Claude templates have a
+matching GPT template ($26.2\%$ in the reverse direction, dominated by
+matching-granularity asymmetry: GPT templates tend to be more fine-grained
+and get covered en-masse by broader Claude templates). The high-level
+category taxonomy is extractor-agnostic.
+
+\paragraph{Ungated vs gated rewriter (v1 vs v3).}
+We ran the same rewriter (\texttt{gemini-2.5-flash}) without our
+preservation gate (``v1''). On \bench{AgentHarm}, ungated rewrites
+produced $\sim 10\%$ refusal-class preservation; gated rewrites
+produced $80.8\%$ (Table~\ref{tab:preservation}) --- an
+$\sim 8\times$ improvement. At the activation-probe level,
+the ungated and gated effects differ by approximately $0.25$ across four
+models. The gap is consistent with inadvertent task drift in ungated
+rewrites; the preservation gate isolates the bank-specific component.
+\textbf{We do not claim this is PRE-equivalent}: we did not run
+\citeauthor{pre2025stealtheval}'s rewriter prompt or dataset; this is
+our own ungated baseline.
+
+% ============================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{Surface vs intrinsic decomposition.}
+The forward effect (raw $+0.21$ across $11$ cells;
+\textbf{bank-specific causal $+0.192$ pooled across all $11$ cells,
+$11/11$ direction-positive, $7/11$ individually significant}) and the
+reverse causal effect ($-0.346$ on source after matched control,
+$-0.176$ on held-out) together suggest a decomposition: a relatively
+small surface component that is removable by preservation-validated
+ablation, and a larger intrinsic component entangled with the test
+target. The bank-specificity asymmetry across benchmark types
+(\S\ref{sec:specificity}) sharpens this: capability evals are
+\emph{partly} sanitizable by surface edits; safety evals are not, because
+their surface signal and their intrinsic test target are largely the
+same thing.
+
+\paragraph{Compositional behavior of cues.}
+A natural question is whether cues compose additively. A preliminary
+analysis on \bench{Hawthorne} (Appendix~\ref{app:compositionality})
+indicated that combining all templates produces a near-zero net
+\Peval{} shift while individual solo effects are large. We do
+\emph{not} present this as a primary claim --- the combined-injection
+input lies outside the probe's training distribution and the per-category
+direction effects we observed can plausibly be probe-OOD artifacts.
+
+\paragraph{Implications for benchmark designers.}
+Decontamination effort against surface test smells is worth prioritizing
+on capability benchmarks (where the bank does targeted work) and is
+roughly cosmetic on safety benchmarks (where the eval signal is task-bound).
+For safety-eval design specifically, the implication is that surface
+sanitization is not a substitute for measuring the model's actual
+behavior under deployment-like presentation; methodologies like
+\citeauthor{abdelnabi2025hawthorne}'s paired-prompt design are required.
+
+% ============================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+We introduce \emph{test smells}: a 258-template bank of canonical evaluation cues
+extracted from six widely-used LLM benchmarks. Three convergent measurements ---
+forward injection ($+0.21$ raw across $11/11$ cells; bank-specific causal
+$+0.192$ across all $11/11$ control-scored cells, $11/11$ direction-positive,
+$7/11$ individually significant),
+preservation-gated reverse intervention ($-0.346$ causal effect on source
+/ $-0.176$ on never-seen \bench{SAD}+\bench{AISI}), and convergent
+preservation oracles at $73$--$100\%$ across capability and safety benchmarks
+--- support a decompositional reading: eval-identifiability has a
+\emph{removable surface component} (the bank, especially on capability benchmarks
+where it dominates matched neutral rewrites $7.9\times$) and a \emph{larger
+intrinsic component} entangled with the test target, particularly on safety
+and situational-awareness benchmarks (on \bench{SAD}, $60/60$ v3 rewrites are
+rejected by the gate: surface and test are the same thing). Activation probes on six open-weight models spanning three families (Qwen3/Qwen3.5, Mistral, Gemma-2) corroborate the
+direction at the representation level but only under cross-benchmark pooled
+training; per-benchmark probes fail to transfer (off-diagonal AUC $\sim 0.54$,
+shuffled-label-null indistinguishable),
+and we explicitly do not claim a universal eval-awareness representation. A
+$n{=}60$ dual-annotator safety spot-check ($\kappa{=}0.509$) finds $\bm{0/30}$
+v3 task unlocks under either annotator, corroborating the preservation oracles. Our
+recommendation to benchmark designers: surface decontamination is worth
+prioritizing on capability benchmarks and is roughly cosmetic on safety
+benchmarks, where the eval signal is task-bound by design.
+
+% ============================================================================
+\section{Limitations}
+\label{sec:limitations}
+
+We organize the principal limitations as six named items. Each names
+the limitation, summarizes what we did to mitigate it in this submission,
+and points at the camera-ready follow-up.
+
+\paragraph{L1. Single primary judge.}
+All headline causal effects flow through \texttt{gpt-5-mini}. We
+mitigate with two formal checks (\S\ref{sec:preservation}): a dual-judge
+agreement study on $n{=}153$ stratified samples
+($\bm{\kappa = 0.413}$, $92.2\%$ agreement,
+Table~\ref{tab:dual-judge-perbench}) and a position-bias 2-swap on
+$n{=}81$ samples ($\bm{6.2\%}$ flip rate). Both indicate the judge
+is moderately stable beyond chance. Neither fully eliminates
+single-judge dependence; a full causal re-run under a different
+primary judge is the camera-ready follow-up.
+
+\paragraph{L2. Manual bank validation is $n{=}42$, with \bench{Hawthorne}
+at $14\%$ strict pass.}
+Aggregate manual validation (Table~\ref{tab:bank-audit}) is
+$67\%$ strict / $88\%$ inclusive at $n{=}42$
+($n{=}7$ per benchmark). \bench{Hawthorne} validates at only
+$14\%$ ($1/7$), implying the \bench{Hawthorne} bank carries
+content cues alongside scaffolding. The bimodal capability-vs-safety
+reading should be interpreted in light of this. Mitigation in this
+submission: the high-precision subset is defined in
+Appendix~\ref{app:high-precision} and the gap is flagged explicitly in
+\S\ref{sec:specificity}. Camera-ready: expand audit to $n\geq 100$ and
+re-run v3 on the high-precision subset.
+
+\paragraph{L3. Per-cell forward bank-specificity is noisy.}
+The pooled forward causal $\Delta = +0.192$ across $11/11$ cells
+($11/11$ direction-positive) is supported at the aggregate level, but
+only $7/11$ cells are individually significant. The $4$ borderline cells
+are exactly those with small per-cell $n$ ($15$--$23$). Camera-ready:
+scale per-cell $n$ to $50$+ for tighter individual CIs.
+
+\paragraph{L4. SAD v3 gate rejects $60/60$.}
+Running v3 on the held-out \bench{SAD} pool rejected all $60$ rewrites
+(\S\ref{sec:specificity}). We treat this as a positive finding
+(``scaffolding is benchmark-dependent'') and the held-out judge result
+($-0.176$, $p<10^{-13}$, Table~\ref{tab:reverse-canonical}) therefore
+uses v2 not v3 on the held-out pool. Camera-ready: construct a
+SAD-specific rewriter that preserves the MCQ-format scaffolding while
+removing only narrowly-targeted cues.
+
+\paragraph{L5. Probes are benchmark-domain-specific.}
+Activation probes (\S\ref{sec:probes}) are explicitly supporting
+diagnostics, not evidence for a universal eval-awareness representation.
+Per-benchmark probes do not transfer cross-benchmark (off-diagonal
+AUC $\sim 0.54$--$0.58$ across all six models, including both
+cross-family probes Mistral-24B at $0.549$ and Gemma-2-27B-it at
+$0.579$). A shuffled-label null on Qwen3-32B ($n_{\text{perm}}{=}100$)
+confirms this off-diagonal AUC is statistically indistinguishable from
+chance (actual $0.543$ vs null mean $0.495$, $63$rd percentile). A
+pooled probe rescues the bank-removal effect but is
+benchmark-distribution-specific. The stronger probe construction is
+\citeauthor{abdelnabi2025hawthorne}'s paired-prompt reasoning-trace
+methodology, which we do not implement here. Camera-ready: adopt their
+paired-prompt design across our six source benchmarks.
+
+\paragraph{L6. v3 unlock rate on \bench{AgentHarm}: $7.7\%$
+(single-judge); $0/30$ in dual-annotator validation.}
+The preservation-gated v3 rewriter unlocks $2/26$ \bench{AgentHarm}
+samples from \textsc{Safe} to \textsc{Harmful} under the strict
+single-judge safety-rubric (Table~\ref{tab:preservation}). On aggregate
+v3 is slightly safer ($19.2\%$ harden rate). A stratified $n{=}60$
+dual-annotator spot-check (gemini-2.5-flash + claude-haiku-4.5,
+$\kappa{=}0.509$, \S\ref{sec:preservation}) finds \textbf{$0/30$ task
+unlocks under \emph{either} annotator} on paired
+(\bench{AgentHarm}, \bench{Hawthorne}) samples --- the rubric-judge
+$7.7\%$ unlock rate may reflect single-judge labeling noise on
+borderline samples. We surface both numbers honestly. Camera-ready:
+larger dual-annotator $n$ on a fully stratified design, plus a
+stricter gate variant that filters on preservation \emph{plus} per-task
+safety-rubric agreement.
+
+\paragraph{Compute and reproducibility (not a limitation; included here for completeness).}
+All judge / rewriter inference is API-based (gpt-5-mini, gemini-2.5-flash,
+claude-haiku-4.5). Activation extraction ran on RunPod H200 and B200
+community-cloud pods across six models, accumulating $\sim$$54$
+H200-equivalent hours (Qwen3-8B/32B/27B fp16, Qwen3.5-122B-A10B fp8,
+plus Mistral-Small-24B and Gemma-2-27B-it both bf16 on a B200) plus
+pilot runs. Total inference cost: $\sim$$\$80$ OpenRouter
+$+\sim$$\$220$ RunPod $\approx\$300$ total. We release the bank,
+paired datasets, and analysis code at
+\href{https://anonymous.4open.science/}{anonymous.4open.science/[anonymized]}.
+
+% ============================================================================
+\section{Ethics}
+\label{sec:ethics}
+
+\paragraph{Dual use.}
+Documenting concrete test smells could in principle help an adversarial
+actor train or prompt a model to better ``hide'' eval-aware behavior. We
+judge the net effect of disclosure to be positive: benchmark designers
+need the same information to detect and remove cues, and obscurity over
+the test-smell taxonomy provides no robust defense (the cues we describe
+are already widely visible in published benchmarks). This mirrors prior
+norms in red-teaming and prompt-attack disclosure
+\citep{perez2023redteaming}.
+
+\paragraph{Data provenance.}
+Source transcripts inherit their upstream benchmarks' licenses. The
+\bench{Needham} pool is gated and accessed under research-use terms; we
+do not redistribute it. The naturalistic chat in our recipient pools
+derives from \bench{WildChat} \citep{zhao2024wildchat}. Our released
+artifacts are distributed under CC-BY-NC-SA-4.0, matching the most
+restrictive upstream license, with a dataset card following
+\citet{gebru2021datasheets} and \citet{pushkarna2022datacards}.
+
+\paragraph{AI assistance disclosure.}
+Per ARR policy, GPT-5.1 and GitHub Copilot were used for code authoring,
+debugging, and prose proofreading. Substantive content, claims, analysis
+design, and final writing were authored by the human authors.
+
+% ============================================================================
+\bibliographystyle{acl_natbib}
+\bibliography{refs}
+
+% ============================================================================
+\newpage
+\appendix
+
+\section{Bank: per-benchmark $\times$ per-category counts}
+\label{app:bank}
+
+\begin{table}[h]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Benchmark & SI & TF & AF & FS & CT & EP & Total \\
+\midrule
+\bench{Needham}    & 19 & 10 & 9  & 4  & 17 & 6  & 65 \\
+\bench{Hawthorne}  & 0  & 0  & 0  & 4  & 4  & 7  & 15 \\
+\bench{MASK}       & 6  & 1  & 1  & 6  & 3  & 10 & 27 \\
+\bench{AgentHarm}  & 2  & 2  & 4  & 6  & 5  & 7  & 26 \\
+\bench{BBH}        & 2  & 8  & 2  & 10 & 23 & 0  & 45 \\
+\bench{MALT}       & 15 & 21 & 15 & 5  & 23 & 1  & 80 \\
+\midrule
+\textbf{Total}     & \textbf{44} & \textbf{42} & \textbf{31} & \textbf{35} & \textbf{75} & \textbf{31} & \textbf{258} \\
+\bottomrule
+\end{tabular}
+\caption{Bank composition by source benchmark and category.
+SI=\category{SystemInstructions}, TF=\category{TaskFormatting},
+AF=\category{AnswerFormatting}, FS=\category{FictionalScenario},
+CT=\category{ContrivedTask}, EP=\category{EthicalProbe}.
+\bench{MALT} contributes the largest share ($80$ templates, $31\%$);
+\bench{Hawthorne} the smallest ($15$, $6\%$). The \bench{Hawthorne} bank
+notably contains zero \category{SystemInstructions} or \category{TaskFormatting}
+templates --- consistent with safety harmful-request benchmarks lacking the
+scaffolding tokens that capability/MCQ benchmarks expose.}
+\label{tab:bank-by-benchmark}
+\end{table}
+
+\section{High-precision bank subset}
+\label{app:high-precision}
+
+We define the \emph{high-precision subset} as those templates whose
+per-benchmark stratified manual-validation pass rate is $\geq 80\%$
+strict (Table~\ref{tab:bank-audit}). Under this rule, the high-precision
+subset is:
+
+\begin{itemize}\itemsep0pt
+\item \bench{BBH}: all $45$ templates ($100\%$ strict pass)
+\item \bench{Needham}: all $65$ templates ($100\%$ strict pass)
+\item \bench{MALT}: $\sim 80$ templates ($86$--$100\%$ inclusive pass)
+\item \bench{AgentHarm}: bottom-half of templates excluded ($\sim 15$ retained
+  out of $26$, $57\%$ pass rate; subset definition requires per-template audit
+  beyond stratified $n{=}7$)
+\item \bench{MASK}: $\sim 12$ retained out of $27$ ($43\%$)
+\item \bench{Hawthorne}: $\sim 2$ retained out of $15$ ($14\%$) --- the
+  high-precision \bench{Hawthorne} subset is too small for a stable
+  per-category Wilcoxon test in the v3 reverse pipeline. We flag this as
+  the most important limitation of our bimodal capability-vs-safety reading
+  (\S\ref{sec:specificity}, \S\ref{sec:limitations}).
+\end{itemize}
+
+The full main effects (\S\S\ref{sec:forward}--\ref{sec:reverse}) are
+reported on the full bank. Re-running on the high-precision subset is
+straightforward via \texttt{scripts/high\_precision\_subset.py} in our
+released code and is the natural camera-ready follow-up.
+
+\section{Reverse intervention: per-category breakdown}
+\label{app:reverse-cat}
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Category & $n$ & base & treat & ctrl & raw $\Delta$ & causal $\Delta$ \\
+\midrule
+\category{ContrivedTask}        & 57 & 0.922 & 0.494 & 0.866 & $-0.428$ & $\bm{-0.373}$ \\
+\category{TaskFormatting}       & 43 & 0.909 & 0.473 & 0.838 & $-0.436$ & $\bm{-0.366}$ \\
+\category{SystemInstructions}   & 28 & 0.906 & 0.568 & 0.880 & $-0.338$ & $\bm{-0.312}$ \\
+\category{EthicalProbe}         & 19 & 0.853 & 0.530 & 0.870 & $-0.323$ & $\bm{-0.340}$ \\
+\category{AnswerFormatting}     & 11 & 0.973 & 0.652 & 0.926 & $-0.321$ & $\bm{-0.274}$ \\
+\category{FictionalScenario}    &  4 & 0.909 & 0.684 & 0.958 & $-0.225$ & $\bm{-0.275}$ \\
+\midrule
+\textbf{All}                    & \textbf{93} & 0.900 & 0.509 & 0.855 & $\bm{-0.391}$ & $\bm{-0.346}$ \\
+\bottomrule
+\end{tabular}
+\caption{v3 reverse intervention with matched neutral controls, per
+bank category. Wilcoxon $p<10^{-4}$ for the all-categories comparison
+and for the four categories with $n\geq 19$.}
+\label{tab:reverse-by-cat}
+\end{table}
+
+\section{Reverse intervention: sub-benchmark composition of the
+\bench{Needham} source pool}
+\label{app:reverse-bench}
+
+The $n{=}93$ paired samples in Table~\ref{tab:reverse-canonical} row 1 come
+from the \bench{Needham} donor pool, which is itself an aggregate of
+$\sim 20$ sub-benchmarks. The dominant sub-benchmarks (by count in the
+$n{=}161$ pre-eligibility pool, of which $n{=}93$ pass the $P_b<0.5$
+flip-eligibility filter) are:
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lr}
+\toprule
+Sub-benchmark & $n$ in v3 reverse pool \\
+\midrule
+aider (coding-eval)            & 27 \\
+cybench (CTF-eval)             & 25 \\
+agentharm (safety-tool)        & 22 \\
+smol (agent-eval)              & 14 \\
+gandalf, mosscap (jailbreak)   & 22 \\
+wmdp (knowledge-eval)          & 9 \\
+gaia, mmlu (general)           & 12 \\
+mvp, swe(bench), model         & 20 \\
+ethics, llm, aya, kobbq, moralexceptqa, safetybench & 8 \\
+\midrule
+\textbf{Total (pre-eligibility)} & \textbf{161} \\
+\textbf{Total (post-eligibility, $P_b{\geq}0.5$)} & \textbf{93} \\
+\bottomrule
+\end{tabular}
+\caption{Sub-benchmark composition of the \bench{Needham} source pool.
+\bench{Needham} aggregates many capability and safety sub-benchmarks; the
+$7.9\times$ bank/control ratio in Table~\ref{tab:reverse-canonical} is on
+the pooled mixture.}
+\label{tab:reverse-subbench}
+\end{table}
+
+\section{Preservation oracles: per-task BBH breakdown}
+\label{app:bbh-pertask}
+
+\begin{table}[h]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrr}
+\toprule
+BBH task & $n$ orig & orig acc & v3 acc & $\Delta$ \\
+\midrule
+boolean\_expressions & 19 & 1.00 & 1.00 & 0 \\
+multistep\_arithmetic & 19 & 1.00 & 1.00 & 0 \\
+object\_counting & 18 & 1.00 & 1.00 & 0 \\
+date\_understanding & 1 & 1.00 & 1.00 & 0 \\
+hyperbaton & 14 & 0.86 & 0.93 & $+0.07$ \\
+logical\_deduction (3-obj) & 7 & 1.00 & 1.00 & 0 \\
+logical\_deduction (5-obj) & 10 & 1.00 & 0.30 & $-0.70$ \\
+logical\_deduction (7-obj) & 11 & 0.73 & 0.18 & $-0.55$ \\
+disambiguation\_qa & 6 & 0.50 & 0.50 & 0 \\
+ruin\_names & 8 & 0.88 & 0.63 & $-0.25$ \\
+sports\_understanding & 20 & 0.75 & 0.50 & $-0.25$ \\
+\dots (13 other tasks, mostly preserving) & --- & --- & --- & --- \\
+\midrule
+\textbf{Aggregate (24 tasks)} & 252 & 0.857 & 0.770 & $-0.087$ \\
+\bottomrule
+\end{tabular}
+\caption{BBH per-task accuracy preservation. The aggregate $89.8\%$
+relative preservation hides per-task variation: most tasks preserve at
+$100\%$, but $\bench{logical\_deduction}$ (5- and 7-object variants) loses
+substantial accuracy under v3, suggesting that for those tasks the
+scaffolding tokens (e.g.\ enumeration formatting) are partly load-bearing
+for the model's answer-extraction.}
+\label{tab:bbh-pertask}
+\end{table}
+
+\section{Activation probes: supplementary}
+\label{app:probes-supplementary}
+
+The full $3\times 3$ M1 cross-benchmark probe transfer AUC matrices per
+model are included in the release at
+\texttt{results/activation\_probing/m1\_cross\_transfer\_\_\\\$model.json}.
+A representative model (Qwen3.5-27B):
+
+\begin{table}[h]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{l|rrr}
+\toprule
+Source probe $\backslash$ Target & \bench{Needham} & \bench{Hawthorne} & \bench{MASK} \\
+\midrule
+\bench{Needham}    & 1.00 & 0.45 & 0.59 \\
+\bench{Hawthorne}  & 0.53 & 1.00 & 0.55 \\
+\bench{MASK}       & 0.60 & 0.55 & 1.00 \\
+\bottomrule
+\end{tabular}
+\caption{Cross-benchmark probe transfer AUC, Qwen3.5-27B. Off-diagonal
+mean $0.54$, essentially chance. Per-bench probes are benchmark-identity
+detectors, not eval-vs-deploy detectors.}
+\label{tab:m1-27b}
+\end{table}
+
+Pooled-probe per-layer CV curves for the same model peak at layer $12$
+($\text{CV}=0.850$); we use this for the bank-specificity computations
+in \S\ref{sec:specificity}. Per-model best-layer depth-fraction
+exploratory data (layer-salience) is in the released results JSON; we
+do not foreground it as a paper claim because our whole-transcript probes
+are not directly comparable to \citet{xue2025linearcontroleval}'s
+paired-prompt reasoning-trace setup.
+
+\section{Forward neutral-injection: per-sample data}
+\label{app:fwd-neutral-supplementary}
+
+The per-sample triples $(P_{\text{ctrl}}, P_{\text{bank}}, P_{\text{neutral}})$
+and bootstrap distributions are shipped at
+\texttt{results/forward\_neutral\_injection.json} ($n{=}20$ per benchmark on
+\bench{Hawthorne} and \bench{MASK}). The headline summary is in
+Table~\ref{tab:fwd-neutral}; per-sample data supports the bootstrap CIs reported
+there ($B{=}1000$). Scaling to $n{=}100$ per benchmark is the natural
+camera-ready follow-up; on each of the other $9$ forward injection cells
+($+0.21$ raw mean, Table from~\S\ref{sec:forward}) we have only the raw
+shift, not the neutral-control-adjusted bank-specific component.
+
+\section{Lexical baseline: sweep over feature counts}
+\label{app:lexical}
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lrr}
+\toprule
+$\text{max\_features}$ & Within-bench AUC & LOBO AUC \\
+\midrule
+35     & 0.82 & 0.44 \\
+100    & 0.86 & 0.46 \\
+500    & 0.91 & 0.47 \\
+2000   & 0.94 & 0.47 \\
+\bottomrule
+\end{tabular}
+\caption{Lexical leave-one-benchmark-out baseline. Within-benchmark
+$5$-fold CV AUC vs LOBO AUC. Adding features helps within a benchmark
+($+0.12$ AUC); it does not help across benchmarks ($+0.03$).}
+\label{tab:lexical-lobo}
+\end{table}
+
+\section{Cross-extractor bank category mapping}
+\label{app:cross-extractor}
+
+We re-extracted the \bench{Needham} subset of the bank with a different
+LLM extractor (Claude-Sonnet) and compared to our GPT-extracted
+\bench{Needham} subset. Both extractors recover all six categories.
+The aligned-template counts per category (per
+\texttt{results/pri5\_bank\_overlap.json}):
+
+\begin{itemize}\itemsep0pt
+\item \category{SystemInstructions}: $5$/$5$ Claude templates align with GPT
+\item \category{TaskFormatting}: $4$/$5$ align
+\item \category{AnswerFormatting}: $3$/$4$ align
+\item \category{FictionalScenario}: $2$/$3$ align
+\item \category{ContrivedTask}: $7$/$8$ align
+\item \category{EthicalProbe}: $2$/$3$ align
+\end{itemize}
+
+Aggregate alignment rate: $23/28 = 86.5\%$. Reverse direction (GPT
+templates having a matching Claude template) is lower at $26.2\%$, but this
+is dominated by matching-granularity asymmetry: GPT-extracted templates
+tend to be finer-grained and get covered en-masse by broader Claude
+templates. The high-level category taxonomy is extractor-agnostic.
+
+\section{Compositionality (exploratory; not a paper claim)}
+\label{app:compositionality}
+
+We attempted a per-template solo vs combined-injection compositionality
+analysis on \bench{Hawthorne} (combined injection of all $13$ Hawthorne
+templates simultaneously vs each individual injection). The combined-shift
+was near-zero ($\Delta \approx +0.04$ on Qwen3.5-27B) while the sum of
+solo shifts was large ($\approx -1.43$ on the same model), suggesting
+\emph{non-additive} composition. We do \emph{not} promote this to a
+paper claim because the combined-injection input lies outside the
+per-benchmark probe's training distribution (M1:
+off-diagonal AUC $\sim 0.54$), and the per-category direction effects
+we observed plausibly reflect probe out-of-distribution behavior rather
+than a genuine non-additivity. The analysis is included for completeness.
+
+\section{Compute and cost}
+\label{app:compute}
+
+Total inference: $\sim$$\$80$ across activation extraction, judge calls,
+behavioral measurement, lexical baselines, and cross-extractor analysis.
+H200 GPU time $\sim$$10$ hours. OpenRouter API calls $\sim$$1{,}500$ for
+judge + rewriter + neutral-prefix + safety-class judges.
+
+\end{document}

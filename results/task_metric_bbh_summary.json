@@ -1,0 +1,156 @@
+{
+  "model": "openai/gpt-5-mini (target)",
+  "judge": "google/gemini-2.5-flash",
+  "n_pairs": 252,
+  "scoring": "LLM-as-judge",
+  "orig_accuracy": 0.8571428571428571,
+  "v3_accuracy": 0.7698412698412699,
+  "delta": -0.08730158730158721,
+  "relative_preservation": 0.8981481481481481,
+  "per_task": {
+    "boolean_expressions": {
+      "orig_acc": 1.0,
+      "v3_acc": 1.0,
+      "orig_n": 19,
+      "v3_n": 19
+    },
+    "date_understanding": {
+      "orig_acc": 1.0,
+      "v3_acc": 1.0,
+      "orig_n": 1,
+      "v3_n": 1
+    },
+    "disambiguation_qa": {
+      "orig_acc": 0.5,
+      "v3_acc": 0.5,
+      "orig_n": 6,
+      "v3_n": 6
+    },
+    "dyck_languages": {
+      "orig_acc": 0.55,
+      "v3_acc": 0.5,
+      "orig_n": 20,
+      "v3_n": 20
+    },
+    "hyperbaton": {
+      "orig_acc": 0.8571428571428571,
+      "v3_acc": 0.9285714285714286,
+      "orig_n": 14,
+      "v3_n": 14
+    },
+    "formal_fallacies": {
+      "orig_acc": 1.0,
+      "v3_acc": 0.0,
+      "orig_n": 1,
+      "v3_n": 1
+    },
+    "logical_deduction_five_objects": {
+      "orig_acc": 0.9,
+      "v3_acc": 0.7,
+      "orig_n": 10,
+      "v3_n": 10
+    },
+    "logical_deduction_seven_objects": {
+      "orig_acc": 0.7272727272727273,
+      "v3_acc": 0.7272727272727273,
+      "orig_n": 11,
+      "v3_n": 11
+    },
+    "logical_deduction_three_objects": {
+      "orig_acc": 1.0,
+      "v3_acc": 1.0,
+      "orig_n": 7,
+      "v3_n": 7
+    },
+    "multistep_arithmetic_two": {
+      "orig_acc": 1.0,
+      "v3_acc": 1.0,
+      "orig_n": 19,
+      "v3_n": 19
+    },
+    "movie_recommendation": {
+      "orig_acc": 1.0,
+      "v3_acc": 0.0,
+      "orig_n": 3,
+      "v3_n": 3
+    },
+    "navigate": {
+      "orig_acc": 1.0,
+      "v3_acc": 1.0,
+      "orig_n": 3,
+      "v3_n": 3
+    },
+    "object_counting": {
+      "orig_acc": 1.0,
+      "v3_acc": 1.0,
+      "orig_n": 18,
+      "v3_n": 18
+    },
+    "reasoning_about_colored_objects": {
+      "orig_acc": 1.0,
+      "v3_acc": 1.0,
+      "orig_n": 1,
+      "v3_n": 1
+    },
+    "ruin_names": {
+      "orig_acc": 0.9473684210526315,
+      "v3_acc": 0.631578947368421,
+      "orig_n": 19,
+      "v3_n": 19
+    },
+    "salient_translation_error_detection": {
+      "orig_acc": 1.0,
+      "v3_acc": 1.0,
+      "orig_n": 4,
+      "v3_n": 4
+    },
+    "snarks": {
+      "orig_acc": 0.8888888888888888,
+      "v3_acc": 0.8888888888888888,
+      "orig_n": 9,
+      "v3_n": 9
+    },
+    "sports_understanding": {
+      "orig_acc": 0.9,
+      "v3_acc": 0.65,
+      "orig_n": 20,
+      "v3_n": 20
+    },
+    "temporal_sequences": {
+      "orig_acc": 1.0,
+      "v3_acc": 1.0,
+      "orig_n": 4,
+      "v3_n": 4
+    },
+    "tracking_shuffled_objects_five_objects": {
+      "orig_acc": 1.0,
+      "v3_acc": 1.0,
+      "orig_n": 7,
+      "v3_n": 7
+    },
+    "tracking_shuffled_objects_seven_objects": {
+      "orig_acc": 1.0,
+      "v3_acc": 1.0,
+      "orig_n": 5,
+      "v3_n": 5
+    },
+    "tracking_shuffled_objects_three_objects": {
+      "orig_acc": 1.0,
+      "v3_acc": 0.8181818181818182,
+      "orig_n": 11,
+      "v3_n": 11
+    },
+    "web_of_lies": {
+      "orig_acc": 0.6,
+      "v3_acc": 0.45,
+      "orig_n": 20,
+      "v3_n": 20
+    },
+    "word_sorting": {
+      "orig_acc": 0.7,
+      "v3_acc": 0.7,
+      "orig_n": 20,
+      "v3_n": 20
+    }
+  }
+}

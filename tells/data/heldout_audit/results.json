@@ -1,0 +1,52 @@
+{
+  "per_benchmark": [
+    {
+      "benchmark": "sad",
+      "n_paired": 60,
+      "n_eligible_high_pe": 60,
+      "mean_baseline_pe": 0.646,
+      "mean_removed_pe": 0.353,
+      "mean_shift_be": 0.292,
+      "pct_decreased": 0.8,
+      "flip_count": 40,
+      "flip_rate": 0.667,
+      "cohen_d_paired": 0.942,
+      "p_value_one_sided": 1.0522369405567396e-08
+    },
+    {
+      "benchmark": "aisi",
+      "n_paired": 60,
+      "n_eligible_high_pe": 60,
+      "mean_baseline_pe": 0.842,
+      "mean_removed_pe": 0.789,
+      "mean_shift_be": 0.053,
+      "pct_decreased": 0.55,
+      "flip_count": 3,
+      "flip_rate": 0.05,
+      "cohen_d_paired": 0.272,
+      "p_value_one_sided": 0.00957462993189617
+    },
+    {
+      "benchmark": "appworld",
+      "n_paired": 26,
+      "n_eligible_high_pe": 26,
+      "mean_baseline_pe": 0.985,
+      "mean_removed_pe": 0.792,
+      "mean_shift_be": 0.192,
+      "pct_decreased": 0.769,
+      "flip_count": 2,
+      "flip_rate": 0.077,
+      "cohen_d_paired": 1.151,
+      "p_value_one_sided": 1.856736997569469e-05
+    }
+  ],
+  "pooled": {
+    "n_paired": 146,
+    "n_eligible_high_pe": 146,
+    "mean_baseline_pe": 0.787,
+    "mean_removed_pe": 0.61,
+    "mean_shift_be": 0.176,
+    "cohen_d_paired": 0.659,
+    "p_value_one_sided": 1.2652526084105708e-13
+  }
+}

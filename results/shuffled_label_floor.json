@@ -1,0 +1,126 @@
+{
+  "model": "Qwen__Qwen3-32B",
+  "n_perm": 100,
+  "per_pair": [
+    {
+      "source": "needham",
+      "target": "needham",
+      "layer": 32,
+      "actual_auc": 1.0,
+      "null_mean": 0.4989234375,
+      "null_ci95": [
+        0.393578125,
+        0.59985546875
+      ],
+      "percentile": 1.0,
+      "self": true
+    },
+    {
+      "source": "needham",
+      "target": "hawthorne",
+      "layer": 32,
+      "actual_auc": 0.43984375,
+      "null_mean": 0.4998234375000001,
+      "null_ci95": [
+        0.41110546875,
+        0.6145703124999998
+      ],
+      "percentile": 0.16,
+      "self": false
+    },
+    {
+      "source": "needham",
+      "target": "mask",
+      "layer": 32,
+      "actual_auc": 0.4875,
+      "null_mean": 0.4926124999999999,
+      "null_ci95": [
+        0.30896875,
+        0.6816562499999997
+      ],
+      "percentile": 0.52,
+      "self": false
+    },
+    {
+      "source": "hawthorne",
+      "target": "needham",
+      "layer": 8,
+      "actual_auc": 0.64078125,
+      "null_mean": 0.481246875,
+      "null_ci95": [
+        0.29695312499999993,
+        0.7044531249999999
+      ],
+      "percentile": 0.9,
+      "self": false
+    },
+    {
+      "source": "hawthorne",
+      "target": "hawthorne",
+      "layer": 8,
+      "actual_auc": 1.0,
+      "null_mean": 0.488565625,
+      "null_ci95": [
+        0.386390625,
+        0.5911562499999999
+      ],
+      "percentile": 1.0,
+      "self": true
+    },
+    {
+      "source": "hawthorne",
+      "target": "mask",
+      "layer": 8,
+      "actual_auc": 0.5379166666666666,
+      "null_mean": 0.49254791666666664,
+      "null_ci95": [
+        0.331375,
+        0.6897812499999998
+      ],
+      "percentile": 0.7,
+      "self": false
+    },
+    {
+      "source": "mask",
+      "target": "needham",
+      "layer": 28,
+      "actual_auc": 0.60046875,
+      "null_mean": 0.5043921875,
+      "null_ci95": [
+        0.27757031249999997,
+        0.7334062499999999
+      ],
+      "percentile": 0.74,
+      "self": false
+    },
+    {
+      "source": "mask",
+      "target": "hawthorne",
+      "layer": 28,
+      "actual_auc": 0.55234375,
+      "null_mean": 0.4987953124999999,
+      "null_ci95": [
+        0.39987890625,
+        0.6145742187499998
+      ],
+      "percentile": 0.74,
+      "self": false
+    },
+    {
+      "source": "mask",
+      "target": "mask",
+      "layer": 28,
+      "actual_auc": 0.9791666666666667,
+      "null_mean": 0.4724458333333333,
+      "null_ci95": [
+        0.3315833333333333,
+        0.6320520833333333
+      ],
+      "percentile": 1.0,
+      "self": true
+    }
+  ],
+  "mean_actual_off_diag_auc": 0.543142361111111,
+  "mean_null_off_diag_auc": 0.4949030381944444,
+  "mean_off_diag_percentile": 0.6266666666666668
+}

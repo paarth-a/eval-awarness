@@ -1,0 +1,22 @@
+{
+  "model": "mistralai/Mistral-Small-24B-Instruct-2501",
+  "matrix": {
+    "needham": {
+      "needham": 1.0,
+      "hawthorne": 0.409625,
+      "mask": 0.8035666666666667
+    },
+    "hawthorne": {
+      "needham": 0.3954414125200642,
+      "hawthorne": 1.0,
+      "mask": 0.4306
+    },
+    "mask": {
+      "needham": 0.7541573033707866,
+      "hawthorne": 0.50315,
+      "mask": 0.985
+    }
+  },
+  "mean_diag_auc": 0.995,
+  "mean_off_diag_auc": 0.5494233970929195
+}

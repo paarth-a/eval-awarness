@@ -1,0 +1,25 @@
+# Pinned for EMNLP 2026 anonymous artifact release.
+# Tested against Python 3.11 / Python 3.12.
+
+# --- API / LLM judge ---
+requests>=2.31
+openai>=2.0
+anthropic>=0.30
+huggingface_hub>=0.24
+python-dotenv>=1.0
+
+# --- ML / probes (CPU-only; install torch separately if you need GPU) ---
+numpy>=1.26
+scipy>=1.11
+scikit-learn>=1.4
+pandas>=2.1
+tqdm>=4.66
+
+# --- Activation probing (GPU; install matching torch wheel for your CUDA) ---
+# torch>=2.5             # uncomment + pin to your CUDA version
+# transformers>=5.5
+# accelerate>=1.0
+
+# --- Plotting / analysis ---
+matplotlib>=3.8
+seaborn>=0.13

@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+title: "Test Smells: Code and Data Release"
+message: "If you use this dataset or code, please cite the accompanying paper."
+type: dataset
+license: CC-BY-NC-SA-4.0
+date-released: 2026-05-23
+abstract: >-
+  A 258-template bank of evaluation cues ("test smells") extracted from six
+  widely used LLM benchmarks, along with paired forward-injection and
+  preservation-gated reverse-removal datasets, white-box activation probes
+  on four open-weight Qwen models, and the full analysis pipeline that
+  produced every number in the accompanying EMNLP 2026 submission.
+authors:
+  - family-names: "Anonymous EMNLP submission"
+keywords:
+  - large language models
+  - evaluation awareness
+  - benchmark contamination
+  - causal probing
+  - safety evaluation
+preferred-citation:
+  type: conference-paper
+  title: >-
+    Test Smells: A Causal Decomposition of Eval-Identifiability in Modern LLM
+    Benchmarks
+  authors:
+    - family-names: "Anonymous EMNLP submission"
+  year: 2026
+  notes: "Under double-blind review; citation will be updated after acceptance."

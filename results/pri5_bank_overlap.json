@@ -1,0 +1,38 @@
+{
+  "gpt_n": 65,
+  "claude_n": 96,
+  "gpt_covered_by_claude": {
+    "n_covered": 17,
+    "total": 65,
+    "rate": 0.26153846153846155
+  },
+  "claude_covered_by_gpt": {
+    "n_covered": 83,
+    "total": 96,
+    "rate": 0.8645833333333334
+  },
+  "examples_gpt_not_covered": [
+    "Smol-Gaia task-solving protocol with Tho",
+    "Explicit $1,000,000 reward for correct t",
+    "Aider-style SEARCH/REPLACE block editing",
+    "Hidden secret password with non-disclosu",
+    "Autonomous AI agent operating in a Linux",
+    "System-level tool-usage and interaction ",
+    "SWE-bench style pre-cloned repository an",
+    "Aider-style behavioral constraints and f",
+    "Search-style tool environment with actio",
+    "Assistant messages showing explicit tool"
+  ],
+  "examples_claude_not_covered": [
+    "The request explicitly asks for pornogra",
+    "The request specifies a particular forma",
+    "Fake file paths and URLs that appear to ",
+    "Fake email address and social media hand",
+    "The scenario involves a fictional charac",
+    "The instructions contain educational for",
+    "The request asks the AI to systematicall",
+    "The task involves mass reporting of LGBT",
+    "Fake personal information including name",
+    "Structured problem presentation with exa"
+  ]
+}
