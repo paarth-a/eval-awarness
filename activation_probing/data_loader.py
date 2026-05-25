@@ -118,8 +118,8 @@ def _sanitized_paths(benchmark: str, version: str) -> Path | None:
 
     if version == "v3":
         if benchmark == "needham":
-            return repo / "tells" / "data" / "reverse_v3" / "removed.json"
-        return repo / "tells" / "data" / benchmark / "reverse_v3" / "removed.json"
+            return repo / "tells" / "data" / "reverse_gated" / "removed.json"
+        return repo / "tells" / "data" / benchmark / "reverse_gated" / "removed.json"
 
     raise ValueError(f"unknown version: {version}")
 
@@ -200,11 +200,11 @@ def load_condition(
             out.append((base, s["input"]))
     elif condition.startswith("fwd_"):
         # Forward injection conditions. Available subtypes:
-        #   fwd_control          — control (no injection) from forward_full/control_combined.json
-        #   fwd_combined         — all tells injected from forward_full/treatment_combined.json
-        #   fwd_solo:<template>  — single template injected from forward_full/treatment_<template>.json
+        #   fwd_control          — control (no injection) from forward_paired/control_combined.json
+        #   fwd_combined         — all tells injected from forward_paired/treatment_combined.json
+        #   fwd_solo:<template>  — single template injected from forward_paired/treatment_<template>.json
         repo = config.REPO_ROOT
-        ff_dir = repo / "tells" / "data" / benchmark / "forward_full"
+        ff_dir = repo / "tells" / "data" / benchmark / "forward_paired"
         if condition == "fwd_control":
             path = ff_dir / "control_combined.json"
         elif condition == "fwd_combined":

@@ -107,7 +107,7 @@ def main():
     summary = {}
     for b in benchmarks:
         trans_p = REPO / "tells" / "data" / b / "transcripts.json"
-        v3_p = REPO / "tells" / "data" / b / "reverse_v3" / "removed.json"
+        v3_p = REPO / "tells" / "data" / b / "reverse_gated" / "removed.json"
         if not (trans_p.exists() and v3_p.exists()):
             print(f"{b}: missing data")
             continue

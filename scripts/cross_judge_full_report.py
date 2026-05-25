@@ -164,7 +164,7 @@ def main():
 
     print("=" * 102)
     print("P1-3 CROSS-JUDGE REVERSE-INTERVENTION HEADLINE")
-    print("Pool: Needham reverse_v3 source pool; eligibility = baseline-Peval ≥ 0.5 (per-judge)")
+    print("Pool: Needham gated-reverse source pool; eligibility = baseline-Peval ≥ 0.5 (per-judge)")
     print("Sign convention: Δ = Peval_after − Peval_before (negative = bank effect)")
     print("=" * 102)
     print()

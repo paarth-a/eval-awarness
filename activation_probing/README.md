@@ -179,9 +179,9 @@ parent repo's data
   ├── tells/data/{B}/low_confidence_deploy_cases   (D-case IDs)
   ├── tells/data/{B}/reverse/dataset.json          (v1 rewrites)
   ├── tells/data/{B}/reverse_v2/removed.json       (v2 rewrites)
-  ├── tells/data/{B}/reverse_v3/removed.json       (v3 rewrites, after gate)
+  ├── tells/data/{B}/reverse_gated/removed.json    (gated rewrites, after preservation gate)
   ├── tells/data/{B}/reverse/control.json          (neutral controls, optional)
-  └── tells/data/{B}/forward_full/*.json           (forward-injection data)
+  └── tells/data/{B}/forward_paired/*.json         (forward-injection data)
 
          │
          ▼

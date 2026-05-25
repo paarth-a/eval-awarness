@@ -196,15 +196,15 @@ File: `results/forward_neutral_injection.json`,
 
 ## 3 · Reverse intervention (necessity)
 
-### 3.1 Pipeline versions
-| Version | Filter | Preservation gate | Reported in paper? |
+### 3.1 Pipeline variants
+| Variant | Filter | Preservation gate | Reported in paper? |
 |---|---|---|---|
-| v1 | All flagged templates | None | As ungated baseline (§9) |
-| v2 | Scaffolding-only filter | None | Held-out (no gate available) (§5) |
-| v3 | Scaffolding-only + 5-criterion gate | Yes (gemini-2.5-flash) | **Primary** (§5) |
-| v4 | + objective certificate + N=3 candidates | Yes | Overconstrained; not in paper |
+| `reverse_ungated` | All flagged templates | None | As ungated baseline (§9) |
+| `reverse_heldout` | Scaffolding-only filter | None | Held-out sanity check (no gate available) (§5) |
+| `reverse_gated` | Scaffolding-only + 5-criterion gate | Yes (gemini-2.5-flash) | **Primary** (§5) |
+| (— deprecated) | + objective certificate + N=3 candidates | Yes | Overconstrained; not in paper |
 
-### 3.2 v3 preservation gate (canonical pipeline)
+### 3.2 `reverse_gated` preservation gate (canonical pipeline)
 For each E-case identified as containing one or more bank templates:
 1. **Rewrite** with gemini-2.5-flash: instructed to remove only
    scaffolding templates (test-bearing templates are protected as
@@ -230,11 +230,11 @@ bank-specific removal effects from generic rewriting effects.
 
 | Pool | $n$ | baseline $P(\text{eval})$ | treatment $P(\text{eval})$ | control $P(\text{eval})$ | raw $\Delta$ | causal $\Delta$ | ratio |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Needham source pool (v3) | 93 | 0.900 | 0.509 | 0.855 | $-0.391$ | $\bm{-0.346}$ (Wilcoxon $p<10^{-9}$) | $\bm{7.9\times}$ |
-| Held-out SAD+AISI (v2; no gate available) | 146 | 0.787 | 0.610 | — | $-0.176$ (Cohen $d{=}0.66$, $p<10^{-13}$) | — | — |
+| Needham source pool (`reverse_gated`) | 93 | 0.900 | 0.509 | 0.855 | $-0.391$ | $\bm{-0.346}$ (Wilcoxon $p<10^{-9}$) | $\bm{7.9\times}$ |
+| Held-out SAD+AISI (`reverse_heldout`; no gate available) | 146 | 0.787 | 0.610 | — | $-0.176$ (Cohen $d{=}0.66$, $p<10^{-13}$) | — | — |
 
 The "Needham source pool" is donor-restricted to Needham (the only
-benchmark for which the full v3 pipeline was run). Needham is itself
+benchmark for which the full `reverse_gated` pipeline was run). Needham is itself
 a meta-benchmark aggregating ~20 sub-benchmarks
 (`aider`, `cybench`, `agentharm` sub-set, etc.); the per-sub-benchmark
 composition is in `tells/data/reverse/removed.json` (see paper Appendix C).
@@ -247,18 +247,31 @@ at least one template of that category, we report causal $\Delta$
 with per-category Wilcoxon $p$. All categories with $n \geq 11$ produce
 statistically significant causal effects (paper Appendix C).
 
-### 3.6 Held-out SAD v3 attempt
-We attempted to apply the v3 preservation gate to the 60 SAD samples.
-**$60/60$ rewrites were rejected by the gate.** Inspection of rejection
-reasons shows the gate correctly identifying that SAD's MCQ-format
-and behavior-target labels constitute the test, not removable
-scaffolding. We frame this as a positive finding for the gate's
-discriminative power, and the held-out judge-level result reported in
-Table~\ref{tab:reverse-canonical} therefore uses v2 (scaffolding-only,
-no gate) on the held-out pool.
+### 3.6 Held-out SAD+AISI gate attempts (120/120 rejection)
+We attempted to apply the `reverse_gated` preservation gate to the 60
+held-out SAD samples and the 60 held-out AISI (`arc_challenge`
+sandbagging) samples. **$120/120$ rewrites were rejected by the gate**
+($0/60$ each). Inspection of rejection reasons shows two structurally
+distinct failure modes:
+- **SAD:** the gate correctly identifies that the MCQ format,
+  second-person ``you'' framing, and behavior-target labels constitute
+  the test, not removable scaffolding.
+- **AISI/arc_challenge:** $57/60$ rejections cite that the rewriter
+  stripped the system-prompt sandbagging instruction (``behave like a
+  less capable model and intentionally give the wrong answer''), which
+  is the behavior target rather than scaffolding.
 
-File: `results/sad_v3_gated.json`,
-`tells/data/heldout_audit/sad_removed.json`.
+We frame this as a positive finding for the gate's discriminative
+power across both situational-awareness and safety-behavior benchmarks.
+The held-out judge-level result reported in
+Table~\ref{tab:reverse-canonical} therefore uses `reverse_heldout`
+(scaffolding-only filter, no gate) on the SAD+AISI pool and is
+flagged as a sanity check, not a held-out replication of the causal
+claim.
+
+Files: `results/sad_v3_gated.json`,
+`results/aisi_v3_gated.json`,
+`tells/data/heldout_audit/{sad,aisi}_removed.json`.
 
 ---
 
@@ -554,13 +567,14 @@ robustness range.
 
 File: `results/position_bias_swap.json`.
 
-### 6.4 Ungated vs gated rewriter (v1 vs v3)
+### 6.4 Ungated vs gated rewriter
 Same rewriter (`gemini-2.5-flash`) without the preservation gate
-produces a $\sim$$2.5\times$ larger apparent activation-probe effect
-($-0.42$ avg.\ across models vs v3 $-0.17$ avg.) but destroys task
-behavior: $\sim$$10\%$ refusal-class preservation on AgentHarm vs v3's
-$80.8\%$. The $\sim$$0.25$ probe gap is the inflation attributable to
-inadvertent task drift in ungated rewriting.
+(`reverse_ungated`) produces a $\sim$$2.5\times$ larger apparent
+activation-probe effect ($-0.42$ avg.\ across models vs `reverse_gated`'s
+$-0.17$ avg.) but destroys task behavior: $\sim$$10\%$ refusal-class
+preservation on AgentHarm vs `reverse_gated`'s $80.8\%$. The $\sim$$0.25$
+probe gap is the inflation attributable to inadvertent task drift in
+ungated rewriting.
 
 We label this an "ungated rewrite baseline", **not** a "PRE-equivalent"
 reproduction; we did not run StealthEval/PRE's exact rewriter or dataset.
@@ -640,7 +654,7 @@ python bank_pipeline/classify_existing_bank.py
 python bank_pipeline/merge_tells.py --source needham --target hawthorne
 # ... etc
 
-# Reverse intervention with v3 preservation gate
+# Reverse intervention with the preservation gate (`reverse_gated`)
 python bank_pipeline/remove_tells.py --benchmark needham
 python bank_pipeline/generate_reverse_controls.py --benchmark needham
 
@@ -669,7 +683,7 @@ output JSON.
 To be explicit, our methodology does **not**:
 1. Claim a universal eval-awareness representation in model activations
    (Section 5 reports this as a deliberate negative result).
-2. Claim that our v1 ungated baseline is equivalent to
+2. Claim that our `reverse_ungated` baseline is equivalent to
    PRE/StealthEval's published rewriter — we did not run their exact prompt.
 3. Claim full single-judge independence — the dual-judge κ=0.41 and
    dual-annotator κ=0.51 are partial mitigations.

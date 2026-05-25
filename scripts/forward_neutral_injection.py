@@ -12,7 +12,7 @@ This addresses: "any prefix raises P(eval); your bank effect could be a
 prefix-length / formatting artifact."
 
 Setup:
-- Use Hawthorne and MASK forward_full data (we have control_combined and
+- Use Hawthorne and MASK forward_paired data (we have control_combined and
   treatment_combined)
 - For ~50 control_combined transcripts per benchmark, generate a matched-length
   innocuous prefix via gemini
@@ -146,10 +146,10 @@ def main():
 
     summary = {}
     for b in ["hawthorne", "mask"]:
-        ctrl_path = REPO / "tells" / "data" / b / "forward_full" / "control_combined.json"
-        treat_path = REPO / "tells" / "data" / b / "forward_full" / "treatment_combined.json"
-        if not (ctrl_path.exists() and treat_path.exists()):
-            print(f"{b}: missing forward_full data")
+        ctrl_path = REPO / "tells" / "data" / b / "forward_paired" / "control_combined.json"
+        treat_path = REPO / "tells" / "data" / b / "forward_paired" / "treatment_combined.json"
+        if not ctrl_path.exists() or not treat_path.exists():
+            print(f"{b}: missing forward_paired data")
             continue
         ctrl = json.loads(ctrl_path.read_text())
         treat = json.loads(treat_path.read_text())

@@ -49,7 +49,7 @@ CONDITIONS = [
     "orig_deploy",   # original D-cases (label=0)
     "v1_removed",    # v1 aggressive removal (parent's tells/data/{b}/reverse/...)
     "v2_removed",    # v2 scaffolding-only filter (parent's reverse_v2/)
-    "v3_removed",    # v3 with preservation gate (parent's reverse_v3/)
+    "v3_removed",    # gated rewrite (preservation-gated; parent's reverse_gated/)
     # "v4_removed",  # uncomment if v4 outputs exist
 ]
 

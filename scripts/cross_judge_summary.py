@@ -83,7 +83,7 @@ def main():
     txt_lines = []
     txt_lines.append("=" * 100)
     txt_lines.append("Cross-judge reverse-intervention headline (paper Table 3 row 1 extension)")
-    txt_lines.append("Pool: Needham reverse_v3 source pool, eligibility-filtered (baseline >= 0.5)")
+    txt_lines.append("Pool: Needham gated-reverse source pool, eligibility-filtered (baseline >= 0.5)")
     txt_lines.append("Sign convention: paper §1 (Delta = Peval_after - Peval_before, negative = bank effect)")
     txt_lines.append("=" * 100)
     txt_lines.append(f"{'judge':<35} {'n':>4} {'base':>6} {'treat':>6} {'ctrl':>6} "

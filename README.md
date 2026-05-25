@@ -52,7 +52,7 @@ test_smells_release/
 ├── tells/data/                    # paired datasets + per-benchmark donors
 │   ├── reverse/                   # v3 reverse intervention (Section 5)
 │   ├── heldout_audit/             # held-out SAD + AISI (Section 5)
-│   ├── {benchmark}/               # per-benchmark donor + forward + reverse_v3
+│   ├── {benchmark}/               # per-benchmark donor + forward_paired + reverse_gated
 └── results/                       # JSON outputs that feed paper tables
     └── activation_probing/        # probe-specific results
 ```
@@ -64,7 +64,7 @@ test_smells_release/
 | Paper § | Table / claim | Run | Output |
 |---|---|---|---|
 | §3 Bank (258 templates) | Tables 1, 2 | (artifact in `bank/`) | `bank/templates.json` |
-| §4 Forward cross-benchmark 11/11 | Table 3 row 1 | `python bank_pipeline/merge_tells.py --source <S> --target <T>` | `tells/data/<T>/forward_full/*.json` |
+| §4 Forward cross-benchmark 11/11 | Table 3 row 1 | `python bank_pipeline/merge_tells.py --source <S> --target <T>` | `tells/data/<T>/forward_paired/*.json` |
 | §4 Forward neutral-injection control | Table 3 rows 2–3 | `python scripts/forward_neutral_injection.py` | `results/forward_neutral_injection.json` |
 | §5 Reverse v3 (canonical table) | Table 4 | `python bank_pipeline/remove_tells.py --benchmark <B>` then `bank_pipeline/generate_reverse_controls.py` | `tells/data/reverse/{removed,control,results}.json` |
 | §5 Held-out SAD+AISI | Table 4 row 2 | (see `bank_pipeline/data_config.py` for held-out setup) | `tells/data/heldout_audit/results.json` |

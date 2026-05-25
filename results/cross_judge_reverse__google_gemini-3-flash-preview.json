@@ -1,7 +1,7 @@
 {
   "judge": "google/gemini-3-flash-preview",
   "protocol": "5 PQs \u00d7 3 epochs averaged per (sample, condition)",
-  "pool": "needham_reverse_v3_source",
+  "pool": "needham_reverse_gated_source",
   "eligibility_threshold": 0.5,
   "n_triples_scored": 151,
   "n_eligible": 151,

@@ -29,7 +29,7 @@ from activation_probing import config, data_loader
 
 
 def list_solo_templates(benchmark: str) -> list[str]:
-    ff = config.REPO_ROOT / "tells" / "data" / benchmark / "forward_full"
+    ff = config.REPO_ROOT / "tells" / "data" / benchmark / "forward_paired"
     out = []
     for p in sorted(ff.glob("treatment_*.json")):
         name = p.stem.removeprefix("treatment_")

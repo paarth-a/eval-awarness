@@ -1,7 +1,7 @@
 {
-  "_description": "P1-3 cross-judge reverse-intervention headline (paper Table 3, matched protocol). Three evaluator families, all under 5 PQs * 3 epochs averaged, baseline-Peval >= 0.5 eligibility filter, Needham reverse_v3 source pool.",
+  "_description": "P1-3 cross-judge reverse-intervention headline (paper Table 3, matched protocol). Three evaluator families, all under 5 PQs * 3 epochs averaged, baseline-Peval >= 0.5 eligibility filter, Needham gated-reverse source pool.",
   "_sign_convention": "Delta = Peval_after - Peval_before (paper sign; negative = bank effect).",
-  "_pool": "Needham reverse_v3 source pool",
+  "_pool": "Needham gated-reverse source pool",
   "_protocol": "5 PQs (eval_mcq.yaml) x 3 epochs averaged per (sample, condition)",
   "_eligibility": "baseline-Peval >= 0.5 (per-judge)",
   "judges": [

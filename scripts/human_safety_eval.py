@@ -128,7 +128,7 @@ def load_pairs():
     for bench in ["agentharm", "hawthorne"]:
         try:
             orig = {t["id"]: t for t in json.loads((REPO/f"tells/data/{bench}/transcripts.json").read_text())}
-            v3 = json.loads((REPO/f"tells/data/{bench}/reverse_v3/removed.json").read_text())
+            v3 = json.loads((REPO/f"tells/data/{bench}/reverse_gated/removed.json").read_text())
         except FileNotFoundError as e:
             print(f"  skip {bench}: {e}")
             continue

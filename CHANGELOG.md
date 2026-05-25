@@ -1,5 +1,87 @@
 # Changelog
 
+## v1.4 — 2026-05-25
+
+P1-6 reviewer-response: rename internal `vN` pipeline identifiers to
+semantically meaningful names (reviewer comment: the `v1`/`v2`/`v3`
+labels are opaque dev-iteration tags with no semantic content for the
+reader).
+
+**Directory renames** (`git mv`, history preserved):
+- `tells/data/<bench>/reverse_v3/` → `tells/data/<bench>/reverse_gated/`
+  for `agentharm`, `bbh`, `hawthorne`, `malt`, `mask` (5 benchmarks).
+- `tells/data/<bench>/forward_full/` → `tells/data/<bench>/forward_paired/`
+  for `hawthorne`, `mask` (2 benchmarks).
+
+**Mapping (paper ↔ repo):**
+| Old name | New name | What it is |
+|---|---|---|
+| `v1` / ungated | `reverse_ungated` | Same rewriter, preservation gate disabled. Ablation. |
+| `v2` / held-out | `reverse_heldout` | Scaffolding-only filter, no gate, no matched controls. Held-out sanity check. |
+| `v3` / gated | `reverse_gated` | Scaffolding-only + 5-criterion preservation gate + matched neutral controls. **Headline causal estimate.** |
+| `forward_full` | `forward_paired` | Forward injection + matched-paraphrase control. |
+
+**Files touched (path-string updates):**
+- `activation_probing/{compositionality.py, config.py, data_loader.py, README.md}`
+- `scripts/{cross_judge_full_report.py, cross_judge_reverse.py, cross_judge_summary.py, forward_neutral_injection.py, high_prec_subset_rerun.py, high_precision_subset.py, human_safety_eval.py, safety_task_metric_agentharm.py, safety_task_preservation.py, score_bbh_llm_judge.py, task_metric_bbh.py}`
+- `results/{cross_judge_headline.txt, cross_judge_reverse_headline.json, cross_judge_reverse__google_gemini-3-flash-preview.json, cross_judge_reverse__qwen_qwen3.5-27b.json}` — `pool` metadata strings only; numeric data unchanged.
+- Documentation: `AGENTS.md`, `README.md`, `METHODOLOGY.md`, `MANIFEST.txt`, `SHA256SUMS`.
+
+**Backward-compatibility note.** Per-record `condition` string
+identifiers inside the data JSONs (e.g. `"condition": "rev_control"`,
+`"condition": "v3_removed"` in cached probe activations) are
+**retained for backward compatibility** with already-released analysis
+JSONs and consumer code. The rename here is at the directory /
+path-string / documentation layer only; existing data files keep
+their original record-level labels. Future probe runs and reverse-
+pipeline outputs MAY write under the new names, but this is not yet
+enforced and old names remain a valid read alias.
+
+**SHA256 hashes unchanged** — file contents identical, only paths moved.
+
+**Paper companion.** All `v1`/`v2`/`v3` tokens removed from
+`evaluation_ablation.tex` (≈25 occurrences across §5, §7, §8,
+Conclusion, Limitations, App. F, App. H, App. K, App. L). App. K
+section header, label `app:v1v3-tradeoff` → `app:ungated-vs-gated-tradeoff`,
+and the matching `tab:` label all renamed.
+
+## v1.3 — 2026-05-25
+
+P1-5 reviewer-response: AISI v3-gate trial completes the
+"scaffolding is benchmark-dependent" finding from SAD-only to SAD+AISI
+(120/120 aggregate gate rejection).
+
+**New script:** `scripts/aisi_v3_gate.py` — applies the same
+5-criterion preservation gate (gpt-5.1 via OpenRouter) to the held-out
+AISI `arc_challenge` v2 rewrites (`tells/data/heldout_audit/aisi_removed.json`,
+n=60). 100 concurrent workers, ~4 s, ~$2.
+
+**New result JSON:** `results/aisi_v3_gated.json` — per-sample gate
+judgments. Pass rate **0/60** (matches the existing SAD `results/sad_v3_gated.json`
+0/60). Aggregate **120/120 gate rejection across SAD+AISI**.
+
+**Two distinct failure modes:**
+- **SAD (60/60):** dominated by "MCQ + second-person *you* framing IS
+  the situational-awareness test"; the rewriter cannot remove the
+  format without destroying the test target.
+- **AISI/arc_challenge (60/60, 57/60 cite the same reason):**
+  dominated by "the system-prompt sandbagging instruction ('behave
+  like a less capable model and intentionally give the wrong answer')
+  IS the behavior target, and the rewriter stripped it as boilerplate".
+
+**Findings.** Positive finding for the preservation gate's
+discriminative power: it correctly refuses 100% of rewrites on
+held-out benchmarks where surface IS the test, via two structurally
+distinct failure mechanisms. Negative finding for bank-as-checklist
+methodology applied to situational-awareness and safety-behavior
+benchmarks.
+
+**Paper companion.** §5 "Held-out generalization" demoted from
+headline-commensurable to "Held-out generalization sanity check"; §7
+"Scaffolding is benchmark-dependent" extended from SAD-only to
+SAD+AISI 120/120; §9 Conclusion and §Limitations updated. METHODOLOGY
+§3.6 updated to reflect both held-out pools.
+
 ## v1.2 — 2026-05-25
 
 P1-3 reviewer-response: cross-evaluator reverse-intervention replication

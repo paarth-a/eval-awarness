@@ -125,7 +125,7 @@ def main():
         return
 
     transcripts = {t["id"]: t for t in json.loads((REPO / "tells" / "data" / "agentharm" / "transcripts.json").read_text())}
-    v3_items = json.loads((REPO / "tells" / "data" / "agentharm" / "reverse_v3" / "removed.json").read_text())
+    v3_items = json.loads((REPO / "tells" / "data" / "agentharm" / "reverse_gated" / "removed.json").read_text())
 
     pairs = []
     for v3 in v3_items:

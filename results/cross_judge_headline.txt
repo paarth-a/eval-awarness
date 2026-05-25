@@ -1,6 +1,6 @@
 ====================================================================================================
 Cross-judge reverse-intervention headline (paper Table 3 row 1 extension)
-Pool: Needham reverse_v3 source pool, eligibility-filtered (baseline >= 0.5)
+Pool: Needham gated-reverse source pool, eligibility-filtered (baseline >= 0.5)
 Sign convention: paper §1 (Delta = Peval_after - Peval_before, negative = bank effect)
 ====================================================================================================
 judge                                  n   base  treat   ctrl    raw Δ   ctrl Δ   causal Δ            causal CI95          p

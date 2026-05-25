@@ -56,7 +56,7 @@ def call_judge(question, target, content_hint, response):
 def main():
     raw = json.loads((REPO / "results" / "task_metric_bbh_raw.json").read_text())
     transcripts = {t["id"]: t for t in json.loads((REPO / "tells" / "data" / "bbh" / "transcripts.json").read_text())}
-    v3_items = {x["id"]: x for x in json.loads((REPO / "tells" / "data" / "bbh" / "reverse_v3" / "removed.json").read_text())}
+    v3_items = {x["id"]: x for x in json.loads((REPO / "tells" / "data" / "bbh" / "reverse_gated" / "removed.json").read_text())}
 
     def judge_one(r):
         base = r["id"].split("__")[0]

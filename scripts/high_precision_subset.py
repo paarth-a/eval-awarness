@@ -66,7 +66,7 @@ def main():
         "test would require re-running bank-ablation with only HIGH_PREC templates,\n"
         "which we have not done. However:\n"
         "  - The bank-removal effect on capability benchmarks (Needham, BBH, MALT in\n"
-        "    cross_matrix and reverse_v3) is consistently strong.\n"
+        "    cross_matrix and reverse_gated) is consistently strong.\n"
         "  - The questionable manual validity rates on Hawthorne/MASK don't impact\n"
         "    the FORWARD claim (where injected templates come from various sources)\n"
         "    or the REVERSE causal effect (where the bank-specific Δ is 0.346,\n"

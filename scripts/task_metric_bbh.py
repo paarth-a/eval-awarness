@@ -99,7 +99,7 @@ def process_one(item, condition_label):
 
 def main():
     transcripts = {t["id"]: t for t in json.loads((REPO / "tells" / "data" / "bbh" / "transcripts.json").read_text())}
-    v3 = json.loads((REPO / "tells" / "data" / "bbh" / "reverse_v3" / "removed.json").read_text())
+    v3 = json.loads((REPO / "tells" / "data" / "bbh" / "reverse_gated" / "removed.json").read_text())
 
     # Match originals to v3
     pairs = []

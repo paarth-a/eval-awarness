@@ -418,7 +418,7 @@ def main():
         "judge": args.judge,
         "protocol": f"{len(PQS)} PQs × {N_EPOCHS} epochs averaged per "
                     "(sample, condition)",
-        "pool": "needham_reverse_v3_source",
+        "pool": "needham_reverse_gated_source",
         "eligibility_threshold": args.eligibility_threshold,
         "n_triples_scored": len(scored),
         "n_eligible": all_row["n_paired"],
