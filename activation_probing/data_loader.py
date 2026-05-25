@@ -33,7 +33,7 @@ def _hf_tells_repo() -> Path:
     env = os.environ.get("HF_TELLS_REPO")
     if env:
         return Path(env)
-    # Common layout: hf-tells-repo is a sibling of netzer-eval-awareness-tells
+    # Common layout: hf-tells-repo is a sibling of this repo
     sibling = config.REPO_ROOT.parent / "hf-tells-repo"
     if sibling.exists():
         return sibling

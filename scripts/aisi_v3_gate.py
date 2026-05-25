@@ -41,13 +41,13 @@ except Exception:
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
 
-# Load secrets from the tells workspace first, then local .env.
-_TELLS_ENV = Path(
-    r"C:\Users\netze\OneDrive\Documents\DropboxBackup\AIAL\SPAR Fellowship"
-    r"\eval_awareness_tells\.env"
-)
-if _TELLS_ENV.exists():
-    load_dotenv(_TELLS_ENV, override=True)
+# Load secrets from the tells workspace first (if EVAL_AWARENESS_TELLS_ENV is
+# set to point at a sibling repo's .env), then the local .env.
+_TELLS_ENV_PATH = os.environ.get("EVAL_AWARENESS_TELLS_ENV")
+if _TELLS_ENV_PATH:
+    _TELLS_ENV = Path(_TELLS_ENV_PATH)
+    if _TELLS_ENV.exists():
+        load_dotenv(_TELLS_ENV, override=True)
 load_dotenv()
 
 
