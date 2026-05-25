@@ -30,3 +30,20 @@ activation_probing/probes_*/
 # Cost / log dumps
 *.log
 nohup.out
+
+# Gated dataset content extracted locally for offline runs (do NOT commit)
+tells/data/needham/transcripts.json
+
+# Per-run score caches for high_prec_subset_rerun.py
+scripts/_hp_cache/
+
+# Per-run score cache for cross_judge_reverse.py (per-call JSONL, regenerable)
+scripts/_cj_cache/
+
+# Per-run gate-decision cache for AISI v3 gate exploration (regenerable)
+scripts/_aisi_gate_cache/
+
+# Smoke-test outputs and diagnostic scratch (regenerable; underscore prefix
+# is the project's convention for non-shipping artifacts)
+results/_*.json
+scripts/_*.py

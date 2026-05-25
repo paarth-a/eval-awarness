@@ -1,0 +1,18 @@
+====================================================================================================
+Cross-judge reverse-intervention headline (paper Table 3 row 1 extension)
+Pool: Needham reverse_v3 source pool, eligibility-filtered (baseline >= 0.5)
+Sign convention: paper §1 (Delta = Peval_after - Peval_before, negative = bank effect)
+====================================================================================================
+judge                                  n   base  treat   ctrl    raw Δ   ctrl Δ   causal Δ            causal CI95          p
+----------------------------------------------------------------------------------------------------
+openai/gpt-5-mini                     93  0.900  0.509  0.855   -0.391   -0.044     -0.346                          0.00e+00
+google/gemini-3-flash-preview        151  0.995  0.886  0.990   -0.109   -0.005     -0.103       [-0.134, -0.074]   1.49e-10
+qwen/qwen3.5-27b                     154  0.995  0.855  0.986   -0.141   -0.009     -0.132       [-0.173, -0.093]   2.79e-10
+====================================================================================================
+
+Notes for paper write-up:
+  - Direction (negative causal Δ) is the model-agnostic claim.
+  - Absolute magnitude scales with baseline calibration on the
+    E-case pool (gpt-5-mini base=0.90; alternatives often saturate near 1.0).
+  - Reduced cross-judge magnitude is the expected outcome under the
+    paper's 'Absolute Δ magnitudes are judge-specific' paragraph (§4/§5).
