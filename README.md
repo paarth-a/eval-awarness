@@ -1,7 +1,5 @@
 # Test Smells: Code and Data Release
 
-This directory is the anonymous code-and-data release accompanying the EMNLP 2026 submission
-*"Test Smells: A Causal Decomposition of Eval-Identifiability in Modern LLM Benchmarks."*
 
 It contains the **258-template bank** of evaluation cues, the **paired datasets** for
 forward and reverse interventions, the **white-box probing pipeline** across four
